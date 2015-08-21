@@ -1,6 +1,6 @@
 PODS:
-  - ActorKit/Core (0.7.0)
-  - ActorKit/Promises (0.7.0):
+  - ActorKit/Core (0.7.1)
+  - ActorKit/Promises (0.7.1):
     - ActorKit/Core
     - PromiseKit/Promise
   - AFNetworking (2.6.0):
@@ -27,11 +27,15 @@ PODS:
   - PromiseKit/Promise (1.6.0)
 
 DEPENDENCIES:
-  - ActorKit/Promises
+  - ActorKit/Promises (from `../ActorKit`)
   - AFNetworking
 
+EXTERNAL SOURCES:
+  ActorKit:
+    :path: ../ActorKit
+
 SPEC CHECKSUMS:
-  ActorKit: 6e6f8e9c4431c35d6d3e7a44cd7b376aaeeb4d26
+  ActorKit: 4225f34fa9914eed5ca0ced3cbbfc58d2d6014a8
   AFNetworking: 79f7eb1a0fcfa7beb409332b2ca49afe9ce53b05
   PromiseKit: 6be651503d4af22830b5313be993c5a0ef77bf77
 
