@@ -17,18 +17,15 @@
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     operation.responseSerializer = [AFImageResponseSerializer serializer];
     
-    __block AFHTTPRequestOperation *blockOperation = operation;
-    operation.completionBlock = ^{
-        
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id object) {
         [self.actorQueue addOperationWithBlock:^{
-            
-            if (blockOperation.error) {
-                [self publish:@"receivedError" payload:blockOperation.error];
-            } else {
-                [self publish:@"receivedImage" payload:blockOperation.responseObject];
-            }
+            [self publish:@"receivedImage" payload:object];
         }];
-    };
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self.actorQueue addOperationWithBlock:^{
+            [self publish:@"receivedError" payload:error];
+        }];
+    }];
     
     [self.actorQueue addOperation:operation];
 }

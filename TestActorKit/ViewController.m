@@ -26,11 +26,19 @@
     
     self.imageFetcher = [ImageFetcher new];
     [self.imageFetcher fetchImages:imageUrls];
+    
+    [self subscribe:@"fetchFinished" selector:@selector(showImages:)];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)showImages:(NSArray *)images
+{
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        for (UIImage *image in images) {
+            UIImageView *view = [[UIImageView alloc] initWithImage:image];
+            view.frame = CGRectMake(0.0, 0.0, image.size.width, image.size.height);
+            [self.view addSubview:view];
+        }
+    });
 }
 
 @end

@@ -12,5 +12,4 @@
 @interface ImageRequest : NSObject
 
 - (void)fetchImageAtUrl:(NSURL *)url;
-
 @end

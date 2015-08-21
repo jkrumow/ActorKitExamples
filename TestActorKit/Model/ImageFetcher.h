@@ -14,6 +14,8 @@
 @interface ImageFetcher : NSObject
 @property (nonatomic, strong, readonly) TBActorPool *fetcherPool;
 @property (nonatomic, strong, readonly) NSArray *urls;
+@property (nonatomic, strong, readonly) NSArray *images;
+@property (nonatomic, strong, readonly) NSArray *errors;
 
 - (void)fetchImages:(NSArray *)urls;
 - (void)handleImage:(UIImage *)image;
