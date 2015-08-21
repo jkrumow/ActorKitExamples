@@ -3,13 +3,36 @@ PODS:
   - ActorKit/Promises (0.7.0):
     - ActorKit/Core
     - PromiseKit/Promise
+  - AFNetworking (2.6.0):
+    - AFNetworking/NSURLConnection (= 2.6.0)
+    - AFNetworking/NSURLSession (= 2.6.0)
+    - AFNetworking/Reachability (= 2.6.0)
+    - AFNetworking/Security (= 2.6.0)
+    - AFNetworking/Serialization (= 2.6.0)
+    - AFNetworking/UIKit (= 2.6.0)
+  - AFNetworking/NSURLConnection (2.6.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.6.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.6.0)
+  - AFNetworking/Security (2.6.0)
+  - AFNetworking/Serialization (2.6.0)
+  - AFNetworking/UIKit (2.6.0):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
   - PromiseKit/Promise (1.6.0)
 
 DEPENDENCIES:
   - ActorKit/Promises
+  - AFNetworking
 
 SPEC CHECKSUMS:
   ActorKit: 6e6f8e9c4431c35d6d3e7a44cd7b376aaeeb4d26
+  AFNetworking: 79f7eb1a0fcfa7beb409332b2ca49afe9ce53b05
   PromiseKit: 6be651503d4af22830b5313be993c5a0ef77bf77
 
 COCOAPODS: 0.38.2
