@@ -25,9 +25,8 @@
                            ];
     
     self.imageFetcher = [ImageFetcher new];
-    [self.imageFetcher fetchImages:imageUrls];
-    
-    [self subscribe:@"fetchFinished" selector:@selector(showImages:)];
+    [self subscribeToActor:self.imageFetcher messageName:@"fetchFinished" selector:@selector(showImages:)];
+    [self.imageFetcher.async fetchImages:imageUrls];
 }
 
 - (void)showImages:(NSArray *)images
