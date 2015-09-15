@@ -18,6 +18,7 @@
 @property (nonatomic, strong, readonly) NSArray *errors;
 
 - (void)fetchImages:(NSArray *)urls;
+- (void)cancelFetch;
 - (void)handleImage:(UIImage *)image;
 - (void)handleError:(NSError *)error;
 @end

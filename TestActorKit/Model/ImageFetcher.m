@@ -51,6 +51,11 @@
     }
 }
 
+- (void)cancelFetch
+{
+    [self.fetcherPool.broadcast cancelFetch];
+}
+
 - (void)handleImage:(UIImage *)image
 {
     [self.priv_images addObject:image];
@@ -63,7 +68,7 @@
     [self _checkFinished];
 }
 
--(void)_checkFinished
+- (void)_checkFinished
 {
     if ((self.priv_images.count + self.priv_errors.count) == self.urls.count) {
         [self publish:@"receivedImages" payload:self.images];

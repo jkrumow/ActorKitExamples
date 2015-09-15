@@ -9,25 +9,42 @@
 #import "ImageRequest.h"
 #import <ActorKit/ActorKit.h>
 
+@interface ImageRequest ()
+@property (nonatomic, strong) AFHTTPRequestOperation *operation;
+@end
+
 @implementation ImageRequest
 
 - (void)fetchImageAtUrl:(NSURL *)url
 {
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    operation.responseSerializer = [AFImageResponseSerializer serializer];
+    _operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    _operation.responseSerializer = [AFImageResponseSerializer serializer];
     
-    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id object) {
-        [self.actorQueue addOperationWithBlock:^{
-            [self publish:@"receivedImage" payload:object];
+    __weak typeof(self) weakSelf = self;
+    [_operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id object) {
+        [weakSelf.actorQueue addOperationWithBlock:^{
+            
+            NSLog(@"received image from %@", operation.response.URL.absoluteString);
+            
+            [weakSelf publish:@"receivedImage" payload:object];
         }];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [self.actorQueue addOperationWithBlock:^{
-            [self publish:@"receivedError" payload:error];
+        [weakSelf.actorQueue addOperationWithBlock:^{
+            
+            NSLog(@"received error %@ from %@", error.localizedDescription, operation.request.URL.absoluteString);
+            
+            [weakSelf publish:@"receivedError" payload:error];
         }];
     }];
     
-    [self.actorQueue addOperation:operation];
+    [self.actorQueue addOperation:_operation];
+}
+
+- (void)cancelFetch
+{
+    NSLog(@"cancelling request to url %@", self.operation.request.URL.absoluteString);
+    [self.operation cancel];
 }
 
 @end

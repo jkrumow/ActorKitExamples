@@ -13,7 +13,7 @@
 
 @interface AppDelegate ()
 @property (nonatomic, strong) GHRunLoopWatchdog *runloopWatchdog;
-@property (nonatomic, strong)ImageFetcher *imageFetcher;
+@property (nonatomic, strong) ImageFetcher *imageFetcher;
 @end
 
 @implementation AppDelegate
@@ -51,7 +51,8 @@
                            ];
     
     self.imageFetcher = [ImageFetcher new];
-    [self.imageFetcher.async fetchImages:imageUrls];
+    [self.imageFetcher.sync fetchImages:imageUrls];
+    [self.imageFetcher cancelFetch];
 }
 
 @end
