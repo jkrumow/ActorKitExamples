@@ -6,38 +6,32 @@
 //  Copyright (c) 2015 Julian Krumow. All rights reserved.
 //
 
-#import "ViewController.h"
-#import "ImageFetcher.h"
+#import <ActorKit/ActorKit.h>
 
-@interface ViewController ()
-@property (nonatomic, strong)ImageFetcher *imageFetcher;
-@end
+#import "ViewController.h"
 
 @implementation ViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    
-    NSArray *imageUrls = @[
-                           [NSURL URLWithString:@"http://www.queenworld.com/cmsAdmin/uploads/mainpage_image_the_band_bw.png"],
-                           [NSURL URLWithString:@"http://i1.ytimg.com/vi/a01QQZyl-_I/0.jpg"]
-                           ];
-    
-    self.imageFetcher = [ImageFetcher new];
-    [self subscribeToActor:self.imageFetcher messageName:@"fetchFinished" selector:@selector(showImages:)];
-    [self.imageFetcher.async fetchImages:imageUrls];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_displayImages:) name:@"receivedImages" object:nil];
 }
 
-- (void)showImages:(NSArray *)images
+- (void)_displayImages:(NSNotification *)notification
 {
-    dispatch_sync(dispatch_get_main_queue(), ^{
-        for (UIImage *image in images) {
+    NSArray *images = notification.userInfo[TBAKActorPayload];
+    
+    NSLog(@"will display %lu images.", (unsigned long)images.count);
+    
+    for (UIImage *image in images) {
+        dispatch_async(dispatch_get_main_queue(), ^{
             UIImageView *view = [[UIImageView alloc] initWithImage:image];
-            view.frame = CGRectMake(0.0, 0.0, image.size.width, image.size.height);
+            CGFloat aspectRatio = image.size.width / image.size.height;
+            view.frame = CGRectMake(0.0, 0.0, self.view.bounds.size.width, self.view.bounds.size.width / aspectRatio);
             [self.view addSubview:view];
-        }
-    });
+        });
+    }
 }
 
 @end

@@ -66,7 +66,7 @@
 -(void)_checkFinished
 {
     if ((self.priv_images.count + self.priv_errors.count) == self.urls.count) {
-        [self publish:@"fetchFinished" payload:self.images];
+        [self publish:@"receivedImages" payload:self.images];
     }
 }
 

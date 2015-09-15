@@ -6,40 +6,52 @@
 //  Copyright (c) 2015 Julian Krumow. All rights reserved.
 //
 
+#import <GHRunLoopWatchdog/GHRunLoopWatchdog.h>
+
 #import "AppDelegate.h"
+#import "ImageFetcher.h"
 
 @interface AppDelegate ()
-
+@property (nonatomic, strong) GHRunLoopWatchdog *runloopWatchdog;
+@property (nonatomic, strong)ImageFetcher *imageFetcher;
 @end
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    self.runloopWatchdog = [[GHRunLoopWatchdog alloc] initWithRunLoop:CFRunLoopGetMain()];
+    [self.runloopWatchdog startWatchingMode:kCFRunLoopCommonModes];
+    self.runloopWatchdog.didStallWithDuration = ^(NSTimeInterval duration) {
+        
+    };
+    
     return YES;
 }
 
-- (void)applicationWillResignActive:(UIApplication *)application {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-}
-
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-}
-
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-}
-
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [self _loadImages];
 }
 
-- (void)applicationWillTerminate:(UIApplication *)application {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+- (void)_loadImages
+{
+    NSArray *imageUrls = @[
+                           [NSURL URLWithString:@"http://www.queenworld.com/cmsAdmin/uploads/mainpage_image_the_band_bw.png"],
+                           [NSURL URLWithString:@"http://i1.ytimg.com/vi/a01QQZyl-_I/0.jpg"],
+                           [NSURL URLWithString:@"https://gp1.wac.edgecastcdn.net/802892/production_public/Artist/133886/image/small/220px-QueenBand.jpg"],
+                           [NSURL URLWithString:@"http://resources3.news.com.au/images/2014/05/19/1226923/257987-b1efbfea-df26-11e3-ada0-03258d7c0c20.jpg"],
+                           [NSURL URLWithString:@"http://chantduchoeur.de/blog/wp-content/uploads/2012/02/queen.jpg"],
+                           [NSURL URLWithString:@"http://static.guim.co.uk/sys-images/Music/Pix/pictures/2011/9/20/1316514596907/Queen-in-the-late-70s-006.jpg"],
+                           [NSURL URLWithString:@"http://www.queen-tribute.de/band90.JPG"],
+                           [NSURL URLWithString:@"http://images.zeit.de/kultur/musik/2014-01/queen/queen-540x304.jpg"],
+                           [NSURL URLWithString:@"http://resources1.news.com.au/images/2014/05/19/1226923/258041-270da4d2-df26-11e3-ada0-03258d7c0c20.jpg"],
+                           [NSURL URLWithString:@"https://upload.wikimedia.org/wikipedia/commons/2/29/Queen_1976.JPG"],
+                           [NSURL URLWithString:@"http://i.telegraph.co.uk/multimedia/archive/01906/Queen_1906434c.jpg"],
+                           [NSURL URLWithString:@"http://i.dailymail.co.uk/i/pix/2009/04/18/article-1169307-01EC3A8F0000044D-100_306x469.jpg"],
+                           ];
+    
+    self.imageFetcher = [ImageFetcher new];
+    [self.imageFetcher.async fetchImages:imageUrls];
 }
 
 @end
