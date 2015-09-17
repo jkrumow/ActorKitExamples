@@ -9,6 +9,7 @@
 #import <GHRunLoopWatchdog/GHRunLoopWatchdog.h>
 
 #import "AppDelegate.h"
+#import "ViewController.h"
 #import "ImageFetcher.h"
 
 @interface AppDelegate ()
@@ -20,6 +21,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    ViewController *viewController = (ViewController *)self.window.rootViewController;
+    viewController.appDelegate = self;
+    
     self.runloopWatchdog = [[GHRunLoopWatchdog alloc] initWithRunLoop:CFRunLoopGetMain()];
     [self.runloopWatchdog startWatchingMode:kCFRunLoopCommonModes];
     self.runloopWatchdog.didStallWithDuration = ^(NSTimeInterval duration) {
@@ -29,11 +33,7 @@
     return YES;
 }
 
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    [self _loadImages];
-}
-
-- (void)_loadImages
+- (void)fetchImages
 {
     NSArray *imageUrls = @[
                            [NSURL URLWithString:@"http://www.queenworld.com/cmsAdmin/uploads/mainpage_image_the_band_bw.png"],
@@ -51,8 +51,7 @@
                            ];
     
     self.imageFetcher = [ImageFetcher new];
-    [self.imageFetcher.sync fetchImages:imageUrls];
-    [self.imageFetcher cancelFetch];
+    [self.imageFetcher.async fetchImages:imageUrls];
 }
 
 @end

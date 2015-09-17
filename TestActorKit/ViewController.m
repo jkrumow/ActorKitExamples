@@ -9,8 +9,23 @@
 #import <ActorKit/ActorKit.h>
 
 #import "ViewController.h"
+#import "ImageCell.h"
+
+@interface ViewController ()
+@property (strong, nonatomic) NSArray *images;
+@end
 
 @implementation ViewController
+
+
+- (instancetype)initWithCoder:(NSCoder *)coder
+{
+    self = [super initWithCoder:coder];
+    if (self) {
+        _images = @[];
+    }
+    return self;
+}
 
 - (void)viewDidLoad
 {
@@ -18,20 +33,31 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_displayImages:) name:@"receivedImages" object:nil];
 }
 
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return self.images.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    ImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ImageCell" forIndexPath:indexPath];
+    cell.imageView.image = [self.images objectAtIndex:indexPath.item];
+    return cell;
+}
+
+- (IBAction)refresh:(id)sender {
+    [self.appDelegate fetchImages];
+}
+
 - (void)_displayImages:(NSNotification *)notification
 {
-    NSArray *images = notification.userInfo[TBAKActorPayload];
+    self.images = notification.userInfo[TBAKActorPayload];
     
-    NSLog(@"will display %lu images.", (unsigned long)images.count);
+    NSLog(@"will display %lu images.", (unsigned long)self.images.count);
     
-    for (UIImage *image in images) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            UIImageView *view = [[UIImageView alloc] initWithImage:image];
-            CGFloat aspectRatio = image.size.width / image.size.height;
-            view.frame = CGRectMake(0.0, 0.0, self.view.bounds.size.width, self.view.bounds.size.width / aspectRatio);
-            [self.view addSubview:view];
-        });
-    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.collectionView reloadData];
+    });
 }
 
 @end

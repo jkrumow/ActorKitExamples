@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+#import "AppDelegate.h"
 
+@interface ViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) AppDelegate *appDelegate;
+
+- (IBAction)refresh:(id)sender;
 @end
 

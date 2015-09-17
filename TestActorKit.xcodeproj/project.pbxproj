@@ -14,8 +14,9 @@
 		153F4AB21B8680E500BA99B2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 153F4AB11B8680E500BA99B2 /* Images.xcassets */; };
 		153F4AB51B8680E500BA99B2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 153F4AB31B8680E500BA99B2 /* LaunchScreen.xib */; };
 		153F4AC11B8680E500BA99B2 /* TestActorKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 153F4AC01B8680E500BA99B2 /* TestActorKitTests.m */; };
-		1570C27E1B8779820035E4B5 /* ImageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1570C27B1B8779820035E4B5 /* ImageRequest.m */; };
-		1570C27F1B8779820035E4B5 /* ImageFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 1570C27D1B8779820035E4B5 /* ImageFetcher.m */; };
+		15B959D91BAB6DE900D115F6 /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B959D81BAB6DE900D115F6 /* ImageCell.m */; settings = {ASSET_TAGS = (); }; };
+		15B959E01BAB72B600D115F6 /* ImageFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B959DD1BAB72B600D115F6 /* ImageFetcher.m */; settings = {ASSET_TAGS = (); }; };
+		15B959E11BAB72B600D115F6 /* ImageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B959DF1BAB72B600D115F6 /* ImageRequest.m */; settings = {ASSET_TAGS = (); }; };
 		DB8186E1E8DE7D7CB0B27A77 /* libPods-TestActorKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 13D22D29AF7456153485279C /* libPods-TestActorKit.a */; };
 /* End PBXBuildFile section */
 
@@ -45,10 +46,12 @@
 		153F4ABA1B8680E500BA99B2 /* TestActorKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestActorKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		153F4ABF1B8680E500BA99B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		153F4AC01B8680E500BA99B2 /* TestActorKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestActorKitTests.m; sourceTree = "<group>"; };
-		1570C27A1B8779820035E4B5 /* ImageRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageRequest.h; sourceTree = "<group>"; };
-		1570C27B1B8779820035E4B5 /* ImageRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageRequest.m; sourceTree = "<group>"; };
-		1570C27C1B8779820035E4B5 /* ImageFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageFetcher.h; sourceTree = "<group>"; };
-		1570C27D1B8779820035E4B5 /* ImageFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageFetcher.m; sourceTree = "<group>"; };
+		15B959D71BAB6DE900D115F6 /* ImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCell.h; sourceTree = "<group>"; };
+		15B959D81BAB6DE900D115F6 /* ImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCell.m; sourceTree = "<group>"; };
+		15B959DC1BAB72B600D115F6 /* ImageFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageFetcher.h; sourceTree = "<group>"; };
+		15B959DD1BAB72B600D115F6 /* ImageFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageFetcher.m; sourceTree = "<group>"; };
+		15B959DE1BAB72B600D115F6 /* ImageRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageRequest.h; sourceTree = "<group>"; };
+		15B959DF1BAB72B600D115F6 /* ImageRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageRequest.m; sourceTree = "<group>"; };
 		43A0AB084284AA511EC0D1F0 /* Pods-TestActorKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestActorKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestActorKit/Pods-TestActorKit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,11 +97,10 @@
 		153F4AA31B8680E500BA99B2 /* TestActorKit */ = {
 			isa = PBXGroup;
 			children = (
-				1570C2781B8779820035E4B5 /* Model */,
+				15B959DB1BAB72B600D115F6 /* Actors */,
+				15B959DA1BAB725A00D115F6 /* User Interface */,
 				153F4AA81B8680E500BA99B2 /* AppDelegate.h */,
 				153F4AA91B8680E500BA99B2 /* AppDelegate.m */,
-				153F4AAB1B8680E500BA99B2 /* ViewController.h */,
-				153F4AAC1B8680E500BA99B2 /* ViewController.m */,
 				153F4AAE1B8680E500BA99B2 /* Main.storyboard */,
 				153F4AB11B8680E500BA99B2 /* Images.xcassets */,
 				153F4AB31B8680E500BA99B2 /* LaunchScreen.xib */,
@@ -133,21 +135,24 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		1570C2781B8779820035E4B5 /* Model */ = {
+		15B959DA1BAB725A00D115F6 /* User Interface */ = {
 			isa = PBXGroup;
 			children = (
-				1570C2791B8779820035E4B5 /* Actors */,
-				1570C27C1B8779820035E4B5 /* ImageFetcher.h */,
-				1570C27D1B8779820035E4B5 /* ImageFetcher.m */,
+				153F4AAB1B8680E500BA99B2 /* ViewController.h */,
+				153F4AAC1B8680E500BA99B2 /* ViewController.m */,
+				15B959D71BAB6DE900D115F6 /* ImageCell.h */,
+				15B959D81BAB6DE900D115F6 /* ImageCell.m */,
 			);
-			path = Model;
+			name = "User Interface";
 			sourceTree = "<group>";
 		};
-		1570C2791B8779820035E4B5 /* Actors */ = {
+		15B959DB1BAB72B600D115F6 /* Actors */ = {
 			isa = PBXGroup;
 			children = (
-				1570C27A1B8779820035E4B5 /* ImageRequest.h */,
-				1570C27B1B8779820035E4B5 /* ImageRequest.m */,
+				15B959DC1BAB72B600D115F6 /* ImageFetcher.h */,
+				15B959DD1BAB72B600D115F6 /* ImageFetcher.m */,
+				15B959DE1BAB72B600D115F6 /* ImageRequest.h */,
+				15B959DF1BAB72B600D115F6 /* ImageRequest.m */,
 			);
 			path = Actors;
 			sourceTree = "<group>";
@@ -305,10 +310,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				153F4AAD1B8680E500BA99B2 /* ViewController.m in Sources */,
-				1570C27E1B8779820035E4B5 /* ImageRequest.m in Sources */,
+				15B959D91BAB6DE900D115F6 /* ImageCell.m in Sources */,
 				153F4AAA1B8680E500BA99B2 /* AppDelegate.m in Sources */,
+				15B959E11BAB72B600D115F6 /* ImageRequest.m in Sources */,
 				153F4AA71B8680E500BA99B2 /* main.m in Sources */,
-				1570C27F1B8779820035E4B5 /* ImageFetcher.m in Sources */,
+				15B959E01BAB72B600D115F6 /* ImageFetcher.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
