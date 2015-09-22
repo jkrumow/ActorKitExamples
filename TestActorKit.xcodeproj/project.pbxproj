@@ -14,9 +14,9 @@
 		153F4AB21B8680E500BA99B2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 153F4AB11B8680E500BA99B2 /* Images.xcassets */; };
 		153F4AB51B8680E500BA99B2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 153F4AB31B8680E500BA99B2 /* LaunchScreen.xib */; };
 		153F4AC11B8680E500BA99B2 /* TestActorKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 153F4AC01B8680E500BA99B2 /* TestActorKitTests.m */; };
-		15B959D91BAB6DE900D115F6 /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B959D81BAB6DE900D115F6 /* ImageCell.m */; settings = {ASSET_TAGS = (); }; };
-		15B959E01BAB72B600D115F6 /* ImageFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B959DD1BAB72B600D115F6 /* ImageFetcher.m */; settings = {ASSET_TAGS = (); }; };
-		15B959E11BAB72B600D115F6 /* ImageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B959DF1BAB72B600D115F6 /* ImageRequest.m */; settings = {ASSET_TAGS = (); }; };
+		15B959D91BAB6DE900D115F6 /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B959D81BAB6DE900D115F6 /* ImageCell.m */; };
+		15B959E01BAB72B600D115F6 /* ImageFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B959DD1BAB72B600D115F6 /* ImageFetcher.m */; };
+		15B959E11BAB72B600D115F6 /* ImageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B959DF1BAB72B600D115F6 /* ImageRequest.m */; };
 		DB8186E1E8DE7D7CB0B27A77 /* libPods-TestActorKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 13D22D29AF7456153485279C /* libPods-TestActorKit.a */; };
 /* End PBXBuildFile section */
 

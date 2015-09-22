@@ -1,6 +1,6 @@
 PODS:
-  - ActorKit/Core (0.7.2)
-  - ActorKit/Promises (0.7.2):
+  - ActorKit/Core (0.8.0)
+  - ActorKit/Promises (0.8.0):
     - ActorKit/Core
     - PromiseKit/Promise
   - AFNetworking (2.6.0):
@@ -24,7 +24,7 @@ PODS:
   - AFNetworking/UIKit (2.6.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - GHRunLoopWatchdog (1.0.1)
+  - GHRunLoopWatchdog (1.0.2)
   - PromiseKit/Promise (1.6.0)
 
 DEPENDENCIES:
@@ -40,13 +40,13 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   GHRunLoopWatchdog:
-    :commit: 5d8c23c5a2dab39ee130236ca00b3c2b59e128da
+    :commit: 96841fe4bbf9a55b08dc823e4d25fa14dd2859c4
     :git: git@gist.github.com:3ba577142a0198a0459d.git
 
 SPEC CHECKSUMS:
-  ActorKit: e4b245c98d5d7fc3a38f832b432b1499eec3879a
+  ActorKit: 4eb46012b78eefbfc203146930c83a4a0457307c
   AFNetworking: 79f7eb1a0fcfa7beb409332b2ca49afe9ce53b05
-  GHRunLoopWatchdog: 8812f424add8754368ef7c4bcc76f871dfeb7489
+  GHRunLoopWatchdog: 2f3c4f00a4eb9e6bf3940d949d9b2607eb80776b
   PromiseKit: 6be651503d4af22830b5313be993c5a0ef77bf77
 
-COCOAPODS: 0.38.2
+COCOAPODS: 0.39.0.beta.4
