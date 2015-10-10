@@ -21,9 +21,8 @@
     if (self) {
         
         _priv_images = [NSMutableArray new];
-        
-        _fetcherPool = [ImageRequest poolWithSize:10 configuration:nil];
-        
+        _priv_errors = [NSMutableArray new];
+                
         [self subscribe:@"receivedImage" selector:@selector(handleImage:)];
         [self subscribe:@"receivedError" selector:@selector(handleError:)];
     }
@@ -47,13 +46,13 @@
     [self.priv_errors removeAllObjects];
 
     for (NSURL *url in _urls) {
-        [self.fetcherPool.async fetchImageAtUrl:url];
+        [[self.supervisionPool[@"fetcherPool"] async] fetchImageAtUrl:url];
     }
 }
 
 - (void)cancelFetch
 {
-    [self.fetcherPool.broadcast cancelFetch];
+    [[((TBActorPool *)self.supervisionPool[@"fetcherPool"]) broadcast] cancelFetch];
 }
 
 - (void)handleImage:(UIImage *)image
@@ -70,7 +69,8 @@
 
 - (void)_checkFinished
 {
-    if ((self.priv_images.count + self.priv_errors.count) == self.urls.count) {
+    unsigned long count = self.priv_images.count + self.priv_errors.count;
+    if (count == self.urls.count) {
         [self publish:@"receivedImages" payload:self.images];
     }
 }

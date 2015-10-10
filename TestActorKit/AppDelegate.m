@@ -14,7 +14,7 @@
 
 @interface AppDelegate ()
 @property (nonatomic, strong) GHRunLoopWatchdog *runloopWatchdog;
-@property (nonatomic, strong) ImageFetcher *imageFetcher;
+@property (nonatomic, strong) TBActorSupervisionPool *actors;
 @end
 
 @implementation AppDelegate
@@ -23,6 +23,18 @@
     
     ViewController *viewController = (ViewController *)self.window.rootViewController;
     viewController.appDelegate = self;
+    
+    
+    self.actors = [TBActorSupervisionPool new];
+    [self.actors superviseWithId:@"imageFetcher" creationBlock:^(NSObject **actor) {
+        ImageFetcher *fetcher = [ImageFetcher new];
+        fetcher.supervisionPool = self.actors;
+        *actor = fetcher;
+    }];
+    
+    [self.actors superviseWithId:@"fetcherPool" creationBlock:^(NSObject *__autoreleasing *actor) {
+        *actor = [ImageRequest poolWithSize:10 configuration:nil];
+    }];
     
     self.runloopWatchdog = [[GHRunLoopWatchdog alloc] initWithRunLoop:CFRunLoopGetMain()];
     [self.runloopWatchdog startWatchingMode:kCFRunLoopCommonModes];
@@ -47,11 +59,10 @@
                            [NSURL URLWithString:@"http://resources1.news.com.au/images/2014/05/19/1226923/258041-270da4d2-df26-11e3-ada0-03258d7c0c20.jpg"],
                            [NSURL URLWithString:@"https://upload.wikimedia.org/wikipedia/commons/2/29/Queen_1976.JPG"],
                            [NSURL URLWithString:@"http://i.telegraph.co.uk/multimedia/archive/01906/Queen_1906434c.jpg"],
-                           [NSURL URLWithString:@"http://i.dailymail.co.uk/i/pix/2009/04/18/article-1169307-01EC3A8F0000044D-100_306x469.jpg"],
+                           [NSURL URLWithString:@"httpx://i.dailymail.co.uk/i/pix/2009/04/18/article-1169307-01EC3A8F0000044D-100_306x469.jpg"],
                            ];
     
-    self.imageFetcher = [ImageFetcher new];
-    [self.imageFetcher.async fetchImages:imageUrls];
+    [[self.actors[@"imageFetcher"] async] fetchImages:imageUrls];
 }
 
 @end
