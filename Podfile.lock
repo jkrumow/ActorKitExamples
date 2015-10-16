@@ -1,6 +1,6 @@
 PODS:
-  - ActorKit/Core (0.9.0)
-  - ActorKit/Promises (0.9.0):
+  - ActorKit/Core (0.10.0)
+  - ActorKit/Promises (0.10.0):
     - ActorKit/Core
     - PromiseKit/Promise
   - AFNetworking (2.6.0):
@@ -44,7 +44,7 @@ CHECKOUT OPTIONS:
     :git: git@gist.github.com:3ba577142a0198a0459d.git
 
 SPEC CHECKSUMS:
-  ActorKit: 39283392fcd8dfb84f8aa317c14c66ee1fe4f162
+  ActorKit: 7a8e36c2a6dd91cb71a4e7564cb5537a7584bd21
   AFNetworking: 79f7eb1a0fcfa7beb409332b2ca49afe9ce53b05
   GHRunLoopWatchdog: 2f3c4f00a4eb9e6bf3940d949d9b2607eb80776b
   PromiseKit: 6be651503d4af22830b5313be993c5a0ef77bf77
