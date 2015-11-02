@@ -14,7 +14,7 @@
 
 @interface AppDelegate ()
 @property (nonatomic, strong) GHRunLoopWatchdog *runloopWatchdog;
-@property (nonatomic, strong) TBActorSupervisionPool *actors;
+@property (nonatomic, strong) ImageFetcher *imageFetcher;
 @end
 
 @implementation AppDelegate
@@ -24,17 +24,8 @@
     ViewController *viewController = (ViewController *)self.window.rootViewController;
     viewController.appDelegate = self;
     
-    
-    self.actors = [TBActorSupervisionPool new];
-    [self.actors superviseWithId:@"imageFetcher" creationBlock:^(NSObject **actor) {
-        ImageFetcher *fetcher = [ImageFetcher new];
-        fetcher.supervisionPool = self.actors;
-        *actor = fetcher;
-    }];
-    
-    [self.actors superviseWithId:@"fetcherPool" creationBlock:^(NSObject *__autoreleasing *actor) {
-        *actor = [ImageRequest poolWithSize:10 configuration:nil];
-    }];
+    self.imageFetcher = [ImageFetcher new];
+    self.imageFetcher.fetcherPool = [ImageRequest poolWithSize:10 configuration:nil];
     
     self.runloopWatchdog = [[GHRunLoopWatchdog alloc] initWithRunLoop:CFRunLoopGetMain()];
     [self.runloopWatchdog startWatchingMode:kCFRunLoopCommonModes];
@@ -62,7 +53,7 @@
                            [NSURL URLWithString:@"httpx://i.dailymail.co.uk/i/pix/2009/04/18/article-1169307-01EC3A8F0000044D-100_306x469.jpg"],
                            ];
     
-    [[self.actors[@"imageFetcher"] async] fetchImages:imageUrls];
+    [[self.imageFetcher async] fetchImages:imageUrls];
 }
 
 @end

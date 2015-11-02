@@ -46,13 +46,13 @@
     [self.priv_errors removeAllObjects];
 
     for (NSURL *url in _urls) {
-        [[self.supervisionPool[@"fetcherPool"] async] fetchImageAtUrl:url];
+        [[self.fetcherPool async] fetchImageAtUrl:url];
     }
 }
 
 - (void)cancelFetch
 {
-    [[((TBActorPool *)self.supervisionPool[@"fetcherPool"]) broadcast] cancelFetch];
+    [[self.fetcherPool broadcast] cancelFetch];
 }
 
 - (void)handleImage:(UIImage *)image

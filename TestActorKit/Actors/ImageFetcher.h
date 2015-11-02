@@ -12,8 +12,7 @@
 #import "ImageRequest.h"
 
 @interface ImageFetcher : NSObject
-@property (nonatomic, weak) TBActorSupervisionPool *supervisionPool;
-@property (nonatomic, strong, readonly) TBActorPool *fetcherPool;
+@property (nonatomic, strong) TBActorPool *fetcherPool;
 @property (nonatomic, strong, readonly) NSArray *urls;
 @property (nonatomic, strong, readonly) NSArray *images;
 @property (nonatomic, strong, readonly) NSArray *errors;
