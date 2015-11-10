@@ -1,5 +1,7 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
+use_frameworks!
+
 target 'TestActorKit', :exclusive => true do
   pod 'ActorKit/Promises', :path => '../ActorKit'
   pod 'AFNetworking'

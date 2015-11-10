@@ -17,7 +17,7 @@
 		15B959D91BAB6DE900D115F6 /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B959D81BAB6DE900D115F6 /* ImageCell.m */; };
 		15B959E01BAB72B600D115F6 /* ImageFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B959DD1BAB72B600D115F6 /* ImageFetcher.m */; };
 		15B959E11BAB72B600D115F6 /* ImageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B959DF1BAB72B600D115F6 /* ImageRequest.m */; };
-		DB8186E1E8DE7D7CB0B27A77 /* libPods-TestActorKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 13D22D29AF7456153485279C /* libPods-TestActorKit.a */; };
+		43FF8BD6EE287BC99760A390 /* Pods_TestActorKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F805FD17588A5C78B40F966A /* Pods_TestActorKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,7 +32,6 @@
 
 /* Begin PBXFileReference section */
 		0F254ECEE4EBD6904821640B /* Pods-TestActorKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestActorKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-TestActorKit/Pods-TestActorKit.release.xcconfig"; sourceTree = "<group>"; };
-		13D22D29AF7456153485279C /* libPods-TestActorKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TestActorKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		153F4AA11B8680E500BA99B2 /* TestActorKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestActorKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		153F4AA51B8680E500BA99B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		153F4AA61B8680E500BA99B2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -53,6 +52,7 @@
 		15B959DE1BAB72B600D115F6 /* ImageRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageRequest.h; sourceTree = "<group>"; };
 		15B959DF1BAB72B600D115F6 /* ImageRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageRequest.m; sourceTree = "<group>"; };
 		43A0AB084284AA511EC0D1F0 /* Pods-TestActorKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestActorKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestActorKit/Pods-TestActorKit.debug.xcconfig"; sourceTree = "<group>"; };
+		F805FD17588A5C78B40F966A /* Pods_TestActorKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestActorKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB8186E1E8DE7D7CB0B27A77 /* libPods-TestActorKit.a in Frameworks */,
+				43FF8BD6EE287BC99760A390 /* Pods_TestActorKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,7 +169,7 @@
 		DA7983F7E2AFC83DFF2DB57B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				13D22D29AF7456153485279C /* libPods-TestActorKit.a */,
+				F805FD17588A5C78B40F966A /* Pods_TestActorKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -409,7 +409,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -447,7 +447,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
