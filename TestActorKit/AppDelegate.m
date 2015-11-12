@@ -13,8 +13,8 @@
 #import "ImageFetcher.h"
 
 @interface AppDelegate ()
-@property (nonatomic, strong) GHRunLoopWatchdog *runloopWatchdog;
-@property (nonatomic, strong) ImageFetcher *imageFetcher;
+@property (nonatomic) GHRunLoopWatchdog *runloopWatchdog;
+@property (nonatomic) ImageFetcher *imageFetcher;
 @end
 
 @implementation AppDelegate

@@ -12,11 +12,10 @@
 #import "ImageCell.h"
 
 @interface ViewController ()
-@property (strong, nonatomic) NSArray *images;
+@property (nonatomic) NSArray *images;
 @end
 
 @implementation ViewController
-
 
 - (instancetype)initWithCoder:(NSCoder *)coder
 {

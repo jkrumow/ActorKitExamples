@@ -10,7 +10,7 @@
 #import <ActorKit/ActorKit.h>
 
 @interface ImageRequest ()
-@property (nonatomic, strong) AFHTTPRequestOperation *operation;
+@property (nonatomic) AFHTTPRequestOperation *operation;
 @end
 
 @implementation ImageRequest

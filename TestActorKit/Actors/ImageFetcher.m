@@ -9,8 +9,8 @@
 #import "ImageFetcher.h"
 
 @interface ImageFetcher ()
-@property (nonatomic, strong, readonly) NSMutableArray *priv_images;
-@property (nonatomic, strong, readonly) NSMutableArray *priv_errors;
+@property (nonatomic) NSMutableArray *priv_images;
+@property (nonatomic) NSMutableArray *priv_errors;
 @end
 
 @implementation ImageFetcher
@@ -19,10 +19,9 @@
 {
     self = [super init];
     if (self) {
-        
         _priv_images = [NSMutableArray new];
         _priv_errors = [NSMutableArray new];
-                
+        
         [self subscribe:@"receivedImage" selector:@selector(handleImage:)];
         [self subscribe:@"receivedError" selector:@selector(handleError:)];
     }
@@ -44,15 +43,10 @@
     _urls = urls;
     [self.priv_images removeAllObjects];
     [self.priv_errors removeAllObjects];
-
+    
     for (NSURL *url in _urls) {
         [[self.fetcherPool async] fetchImageAtUrl:url];
     }
-}
-
-- (void)cancelFetch
-{
-    [[self.fetcherPool broadcast] cancelFetch];
 }
 
 - (void)handleImage:(UIImage *)image

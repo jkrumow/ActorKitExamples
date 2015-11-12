@@ -12,13 +12,12 @@
 #import "ImageRequest.h"
 
 @interface ImageFetcher : NSObject
-@property (nonatomic, strong) TBActorPool *fetcherPool;
-@property (nonatomic, strong, readonly) NSArray *urls;
-@property (nonatomic, strong, readonly) NSArray *images;
-@property (nonatomic, strong, readonly) NSArray *errors;
+@property (nonatomic) TBActorPool *fetcherPool;
+@property (nonatomic, readonly) NSArray *urls;
+@property (nonatomic, readonly) NSArray *images;
+@property (nonatomic, readonly) NSArray *errors;
 
 - (void)fetchImages:(NSArray *)urls;
-- (void)cancelFetch;
 - (void)handleImage:(UIImage *)image;
 - (void)handleError:(NSError *)error;
 @end
