@@ -2,7 +2,7 @@ PODS:
   - ActorKit/Core (0.15.0)
   - ActorKit/Promises (0.15.0):
     - ActorKit/Core
-    - PromiseKit
+    - PromiseKit/CorePromise (~> 3.0)
   - AFNetworking (2.6.0):
     - AFNetworking/NSURLConnection (= 2.6.0)
     - AFNetworking/NSURLSession (= 2.6.0)
@@ -25,25 +25,7 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - GHRunLoopWatchdog (1.0.2)
-  - OMGHTTPURLRQ (3.0.2):
-    - OMGHTTPURLRQ/RQ (= 3.0.2)
-  - OMGHTTPURLRQ/FormURLEncode (3.0.2)
-  - OMGHTTPURLRQ/RQ (3.0.2):
-    - OMGHTTPURLRQ/FormURLEncode
-    - OMGHTTPURLRQ/UserAgent
-  - OMGHTTPURLRQ/UserAgent (3.0.2)
-  - PromiseKit (3.0.0):
-    - PromiseKit/Foundation (= 3.0.0)
-    - PromiseKit/QuartzCore (= 3.0.0)
-    - PromiseKit/UIKit (= 3.0.0)
   - PromiseKit/CorePromise (3.0.0)
-  - PromiseKit/Foundation (3.0.0):
-    - OMGHTTPURLRQ (~> 3.0.0)
-    - PromiseKit/CorePromise
-  - PromiseKit/QuartzCore (3.0.0):
-    - PromiseKit/CorePromise
-  - PromiseKit/UIKit (3.0.0):
-    - PromiseKit/CorePromise
 
 DEPENDENCIES:
   - ActorKit/Promises (from `../ActorKit`)
@@ -62,10 +44,9 @@ CHECKOUT OPTIONS:
     :git: git@gist.github.com:3ba577142a0198a0459d.git
 
 SPEC CHECKSUMS:
-  ActorKit: 0471eaed1fe4236145e025d7fdd6c093de3e2235
+  ActorKit: 7d2c2e3e40009c137b1604e576c2c9be038d9bfd
   AFNetworking: 79f7eb1a0fcfa7beb409332b2ca49afe9ce53b05
   GHRunLoopWatchdog: 2f3c4f00a4eb9e6bf3940d949d9b2607eb80776b
-  OMGHTTPURLRQ: 8376dc887d76a5a7e2a67881dc788f917a2f437c
   PromiseKit: 665540a1eb43156446872dcf49ed7dee6ebbe13b
 
 COCOAPODS: 0.39.0
