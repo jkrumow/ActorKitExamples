@@ -3,25 +3,25 @@ PODS:
   - ActorKit/Promises (0.15.0):
     - ActorKit/Core
     - PromiseKit/CorePromise (~> 3.0)
-  - AFNetworking (2.6.0):
-    - AFNetworking/NSURLConnection (= 2.6.0)
-    - AFNetworking/NSURLSession (= 2.6.0)
-    - AFNetworking/Reachability (= 2.6.0)
-    - AFNetworking/Security (= 2.6.0)
-    - AFNetworking/Serialization (= 2.6.0)
-    - AFNetworking/UIKit (= 2.6.0)
-  - AFNetworking/NSURLConnection (2.6.0):
+  - AFNetworking (2.6.3):
+    - AFNetworking/NSURLConnection (= 2.6.3)
+    - AFNetworking/NSURLSession (= 2.6.3)
+    - AFNetworking/Reachability (= 2.6.3)
+    - AFNetworking/Security (= 2.6.3)
+    - AFNetworking/Serialization (= 2.6.3)
+    - AFNetworking/UIKit (= 2.6.3)
+  - AFNetworking/NSURLConnection (2.6.3):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.6.0):
+  - AFNetworking/NSURLSession (2.6.3):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.6.0)
-  - AFNetworking/Security (2.6.0)
-  - AFNetworking/Serialization (2.6.0)
-  - AFNetworking/UIKit (2.6.0):
+  - AFNetworking/Reachability (2.6.3)
+  - AFNetworking/Security (2.6.3)
+  - AFNetworking/Serialization (2.6.3)
+  - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - GHRunLoopWatchdog (1.0.2)
@@ -44,8 +44,8 @@ CHECKOUT OPTIONS:
     :git: git@gist.github.com:3ba577142a0198a0459d.git
 
 SPEC CHECKSUMS:
-  ActorKit: 7d2c2e3e40009c137b1604e576c2c9be038d9bfd
-  AFNetworking: 79f7eb1a0fcfa7beb409332b2ca49afe9ce53b05
+  ActorKit: 31da54dcf60d7c53d6eeec25b5fc5498e779be0c
+  AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   GHRunLoopWatchdog: 2f3c4f00a4eb9e6bf3940d949d9b2607eb80776b
   PromiseKit: 665540a1eb43156446872dcf49ed7dee6ebbe13b
 
