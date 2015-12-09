@@ -13,7 +13,9 @@
 @interface ViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+
 @property (weak, nonatomic) AppDelegate *appDelegate;
+@property (nonatomic) NSArray *images;
 
 - (IBAction)refresh:(id)sender;
 @end

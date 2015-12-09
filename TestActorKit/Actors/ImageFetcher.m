@@ -10,7 +10,6 @@
 
 @interface ImageFetcher ()
 @property (nonatomic) NSMutableArray *priv_images;
-@property (nonatomic) NSMutableArray *priv_errors;
 @end
 
 @implementation ImageFetcher
@@ -20,12 +19,15 @@
     self = [super init];
     if (self) {
         _priv_images = [NSMutableArray new];
-        _priv_errors = [NSMutableArray new];
         
-        [self subscribe:@"receivedImage" selector:@selector(handleImage:)];
-        [self subscribe:@"receivedError" selector:@selector(handleError:)];
+        [self subscribe:@"receivedImage" selector:@selector(_handleImage:)];
     }
     return self;
+}
+
+- (void)dealloc
+{
+    [self unsubscribe:@"receivedImage"];
 }
 
 - (NSArray *)images
@@ -33,40 +35,19 @@
     return self.priv_images.copy;
 }
 
-- (NSArray *)errors
-{
-    return self.priv_errors.copy;
-}
-
 - (void)fetchImages:(NSArray *)urls
 {
-    _urls = urls;
     [self.priv_images removeAllObjects];
-    [self.priv_errors removeAllObjects];
     
-    for (NSURL *url in _urls) {
-        [[self.fetcherPool async] fetchImageAtUrl:url];
+    for (NSURL *url in urls) {
+        [[TBActorSupervisionPool.sharedInstance[@"fetcherPool"] async] fetchImageAtUrl:url];
     }
 }
 
-- (void)handleImage:(UIImage *)image
+- (void)_handleImage:(UIImage *)image
 {
     [self.priv_images addObject:image];
-    [self _checkFinished];
-}
-
-- (void)handleError:(NSError *)error
-{
-    [self.priv_errors addObject:error];
-    [self _checkFinished];
-}
-
-- (void)_checkFinished
-{
-    unsigned long count = self.priv_images.count + self.priv_errors.count;
-    if (count == self.urls.count) {
-        [self publish:@"receivedImages" payload:self.images];
-    }
+    [self publish:@"receivedImages" payload:self.images];
 }
 
 @end

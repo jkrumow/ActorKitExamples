@@ -10,7 +10,7 @@
 #import <AFNetworking/AFNetworking.h>
 
 @interface ImageRequest : NSObject
+@property (nonatomic, readonly) AFHTTPRequestOperation *operation;
 
 - (void)fetchImageAtUrl:(NSURL *)url;
-- (void)cancelFetch;
 @end

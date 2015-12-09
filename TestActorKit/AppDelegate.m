@@ -6,16 +6,9 @@
 //  Copyright (c) 2015 Julian Krumow. All rights reserved.
 //
 
-#import <GHRunLoopWatchdog/GHRunLoopWatchdog.h>
-
 #import "AppDelegate.h"
 #import "ViewController.h"
 #import "ImageFetcher.h"
-
-@interface AppDelegate ()
-@property (nonatomic) GHRunLoopWatchdog *runloopWatchdog;
-@property (nonatomic) ImageFetcher *imageFetcher;
-@end
 
 @implementation AppDelegate
 
@@ -24,16 +17,30 @@
     ViewController *viewController = (ViewController *)self.window.rootViewController;
     viewController.appDelegate = self;
     
-    self.imageFetcher = [ImageFetcher new];
-    self.imageFetcher.fetcherPool = [ImageRequest poolWithSize:10 configuration:nil];
+    [self _setupRunloopWatchdog];
+    [self _superviseActors];
     
+    return YES;
+}
+
+- (void)_setupRunloopWatchdog
+{
     self.runloopWatchdog = [[GHRunLoopWatchdog alloc] initWithRunLoop:CFRunLoopGetMain()];
     [self.runloopWatchdog startWatchingMode:kCFRunLoopCommonModes];
     self.runloopWatchdog.didStallWithDuration = ^(NSTimeInterval duration) {
         
     };
+}
+
+- (void)_superviseActors
+{
+    [TBActorSupervisionPool.sharedInstance superviseWithId:@"imageFetcher" creationBlock:^(NSObject *__autoreleasing  _Nonnull * _Nonnull actor) {
+        *actor = [ImageFetcher new];
+    }];
     
-    return YES;
+    [TBActorSupervisionPool.sharedInstance superviseWithId:@"fetcherPool" creationBlock:^(NSObject *__autoreleasing  _Nonnull * _Nonnull actor) {
+        *actor = [ImageRequest poolWithSize:10 configuration:nil];
+    }];
 }
 
 - (void)fetchImages
@@ -53,7 +60,7 @@
                            [NSURL URLWithString:@"httpx://i.dailymail.co.uk/i/pix/2009/04/18/article-1169307-01EC3A8F0000044D-100_306x469.jpg"],
                            ];
     
-    [[self.imageFetcher async] fetchImages:imageUrls];
+    [[TBActorSupervisionPool.sharedInstance[@"imageFetcher"] async] fetchImages:imageUrls];
 }
 
 @end

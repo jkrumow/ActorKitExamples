@@ -7,11 +7,7 @@
 //
 
 #import "ImageRequest.h"
-#import <ActorKit/ActorKit.h>
-
-@interface ImageRequest ()
-@property (nonatomic) AFHTTPRequestOperation *operation;
-@end
+#import <ActorKit/Supervision.h>
 
 @implementation ImageRequest
 
@@ -22,29 +18,21 @@
     _operation.responseSerializer = [AFImageResponseSerializer serializer];
     
     __weak typeof(self) weakSelf = self;
-    [_operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id object) {
+    [_operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, UIImage *image) {
         [weakSelf.actorQueue addOperationWithBlock:^{
             
             NSLog(@"received image from %@", operation.response.URL.absoluteString);
-            
-            [weakSelf publish:@"receivedImage" payload:object];
+            [weakSelf publish:@"receivedImage" payload:image];
         }];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [weakSelf.actorQueue addOperationWithBlock:^{
             
             NSLog(@"received error %@ from %@", error.localizedDescription, operation.request.URL.absoluteString);
-            
-            [weakSelf publish:@"receivedError" payload:error];
+            [weakSelf crashWithError:error];
         }];
     }];
     
     [self.actorQueue addOperation:_operation];
-}
-
-- (void)cancelFetch
-{
-    NSLog(@"cancelling request to url %@", self.operation.request.URL.absoluteString);
-    [self.operation cancel];
 }
 
 @end

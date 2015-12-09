@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <GHRunLoopWatchdog/GHRunLoopWatchdog.h>
+#import <ActorKit/ActorKit.h>
+#import <ActorKit/Supervision.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (strong, nonatomic) UIWindow *window;
+@property (nonatomic) UIWindow *window;
+@property (nonatomic) GHRunLoopWatchdog *runloopWatchdog;
 
 - (void)fetchImages;
 @end

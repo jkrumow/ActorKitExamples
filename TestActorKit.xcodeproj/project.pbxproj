@@ -98,12 +98,12 @@
 			isa = PBXGroup;
 			children = (
 				15B959DB1BAB72B600D115F6 /* Actors */,
-				15B959DA1BAB725A00D115F6 /* User Interface */,
 				153F4AA81B8680E500BA99B2 /* AppDelegate.h */,
 				153F4AA91B8680E500BA99B2 /* AppDelegate.m */,
-				153F4AAE1B8680E500BA99B2 /* Main.storyboard */,
+				15B959DA1BAB725A00D115F6 /* User Interface */,
 				153F4AB11B8680E500BA99B2 /* Images.xcassets */,
 				153F4AB31B8680E500BA99B2 /* LaunchScreen.xib */,
+				153F4AAE1B8680E500BA99B2 /* Main.storyboard */,
 				153F4AA41B8680E500BA99B2 /* Supporting Files */,
 			);
 			path = TestActorKit;

@@ -11,10 +11,6 @@
 #import "ViewController.h"
 #import "ImageCell.h"
 
-@interface ViewController ()
-@property (nonatomic) NSArray *images;
-@end
-
 @implementation ViewController
 
 - (instancetype)initWithCoder:(NSCoder *)coder
@@ -40,21 +36,19 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ImageCell" forIndexPath:indexPath];
-    cell.imageView.image = [self.images objectAtIndex:indexPath.item];
+    cell.imageView.image = (self.images)[indexPath.item];
     return cell;
 }
 
-- (IBAction)refresh:(id)sender {
+- (IBAction)refresh:(id)sender
+{
     [self.appDelegate fetchImages];
 }
 
 - (void)_displayImages:(NSNotification *)notification
 {
-    self.images = notification.userInfo[TBAKActorPayload];
-    
-    NSLog(@"will display %lu images.", (unsigned long)self.images.count);
-    
     dispatch_async(dispatch_get_main_queue(), ^{
+        self.images = notification.userInfo[TBAKActorPayload];
         [self.collectionView reloadData];
     });
 }

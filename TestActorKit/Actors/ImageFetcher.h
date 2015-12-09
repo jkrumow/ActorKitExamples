@@ -8,16 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import <ActorKit/ActorKit.h>
+#import <ActorKit/Supervision.h>
+
 #import "ImageRequest.h"
 
 @interface ImageFetcher : NSObject
-@property (nonatomic) TBActorPool *fetcherPool;
-@property (nonatomic, readonly) NSArray *urls;
 @property (nonatomic, readonly) NSArray *images;
-@property (nonatomic, readonly) NSArray *errors;
 
 - (void)fetchImages:(NSArray *)urls;
-- (void)handleImage:(UIImage *)image;
-- (void)handleError:(NSError *)error;
 @end
