@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15319AAE1C20CA040077987B /* Table.m in Sources */ = {isa = PBXBuildFile; fileRef = 15319AAD1C20CA040077987B /* Table.m */; };
+		15319AB11C20CA0F0077987B /* Philosopher.m in Sources */ = {isa = PBXBuildFile; fileRef = 15319AB01C20CA0F0077987B /* Philosopher.m */; };
 		153F4AA71B8680E500BA99B2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 153F4AA61B8680E500BA99B2 /* main.m */; };
 		153F4AAA1B8680E500BA99B2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 153F4AA91B8680E500BA99B2 /* AppDelegate.m */; };
 		153F4AAD1B8680E500BA99B2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 153F4AAC1B8680E500BA99B2 /* ViewController.m */; };
@@ -32,6 +34,10 @@
 
 /* Begin PBXFileReference section */
 		0F254ECEE4EBD6904821640B /* Pods-TestActorKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestActorKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-TestActorKit/Pods-TestActorKit.release.xcconfig"; sourceTree = "<group>"; };
+		15319AAC1C20CA040077987B /* Table.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Table.h; sourceTree = "<group>"; };
+		15319AAD1C20CA040077987B /* Table.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Table.m; sourceTree = "<group>"; };
+		15319AAF1C20CA0F0077987B /* Philosopher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Philosopher.h; sourceTree = "<group>"; };
+		15319AB01C20CA0F0077987B /* Philosopher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Philosopher.m; sourceTree = "<group>"; };
 		153F4AA11B8680E500BA99B2 /* TestActorKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestActorKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		153F4AA51B8680E500BA99B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		153F4AA61B8680E500BA99B2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -74,6 +80,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15319AB21C20CAF00077987B /* Actors */ = {
+			isa = PBXGroup;
+			children = (
+				15319AAC1C20CA040077987B /* Table.h */,
+				15319AAD1C20CA040077987B /* Table.m */,
+				15319AAF1C20CA0F0077987B /* Philosopher.h */,
+				15319AB01C20CA0F0077987B /* Philosopher.m */,
+			);
+			name = Actors;
+			sourceTree = "<group>";
+		};
 		153F4A981B8680E500BA99B2 = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +138,7 @@
 		153F4ABD1B8680E500BA99B2 /* TestActorKitTests */ = {
 			isa = PBXGroup;
 			children = (
+				15319AB21C20CAF00077987B /* Actors */,
 				153F4AC01B8680E500BA99B2 /* TestActorKitTests.m */,
 				153F4ABE1B8680E500BA99B2 /* Supporting Files */,
 			);
@@ -338,7 +356,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15319AAE1C20CA040077987B /* Table.m in Sources */,
 				153F4AC11B8680E500BA99B2 /* TestActorKitTests.m in Sources */,
+				15319AB11C20CA0F0077987B /* Philosopher.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
