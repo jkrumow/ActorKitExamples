@@ -34,12 +34,12 @@
 
 - (void)_superviseActors
 {
-    [TBActorSupervisionPool.sharedInstance superviseWithId:@"imageFetcher" creationBlock:^(NSObject *__autoreleasing  _Nonnull * _Nonnull actor) {
-        *actor = [ImageFetcher new];
+    [TBActorSupervisionPool.sharedInstance superviseWithId:@"imageFetcher" creationBlock:^NSObject * _Nonnull {
+        return [ImageFetcher new];
     }];
     
-    [TBActorSupervisionPool.sharedInstance superviseWithId:@"fetcherPool" creationBlock:^(NSObject *__autoreleasing  _Nonnull * _Nonnull actor) {
-        *actor = [ImageRequest poolWithSize:10 configuration:nil];
+    [TBActorSupervisionPool.sharedInstance superviseWithId:@"fetcherPool" creationBlock:^NSObject * _Nonnull {
+        return [ImageRequest poolWithSize:10 configuration:nil];
     }];
 }
 
