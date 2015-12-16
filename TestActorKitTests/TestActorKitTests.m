@@ -41,7 +41,13 @@
         }];
     }
     
-    sleep(60000);
+    sleep(2);
+    
+    [table tbak_suspend];
+    
+    for (NSString *name in names) {
+        [TBActorSupervisionPool.sharedInstance[name] tbak_suspend];
+    }
     
     XCTAssert(YES, @"Pass");
 }

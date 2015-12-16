@@ -10,9 +10,9 @@
 
 @interface Table : NSObject
 
-@property (nonatomic) NSMutableOrderedSet<NSString *> *philosophers;
-@property (nonatomic) NSMutableOrderedSet<NSString *> *eating;
-@property (nonatomic) NSMutableArray<NSNumber *> *chopsticks;
+@property (nonatomic) NSMutableOrderedSet *philosophers;
+@property (nonatomic) NSMutableOrderedSet *eating;
+@property (nonatomic) NSMutableArray *chopsticks;
 
 - (instancetype)initWithChopsticks:(NSUInteger)chopSticks;
 - (void)welcome:(NSString *)name;

@@ -29,6 +29,7 @@
 {
     NSLog(@"%@ is thinking", self.name);
     [self sleepForRandomInterval];
+    
     NSLog(@"%@ gets hungry", self.name);
     [self.table.async hungry:self.name];
 }
@@ -37,19 +38,13 @@
 {
     NSLog(@"%@ is eating", self.name);
     [self sleepForRandomInterval];
-    NSLog(@"%@ burps", self.name);
     
     if ([self isFeelingWell]) {
+        NSLog(@"%@ burps", self.name);
         [self.table.async dropChopsticks:self.name];
     } else {
         [self barf];
     }
-}
-
-- (void)sleepForRandomInterval
-{
-    double interval =(rand() % 1000) / 1000.0;
-    sleep(interval);
 }
 
 - (void)barf
@@ -59,12 +54,18 @@
     NSLog(@"%@ barfs", self.name);
     
     NSString *message = [NSString stringWithFormat:@"%@ got sick.", self.name];
-    [self crashWithError:[NSError errorWithDomain:@"org.philosopher.error" code:666 userInfo:@{NSLocalizedDescriptionKey:message}]];
+    @throw [NSException exceptionWithName:@"org.philosopher.error" reason:message userInfo:nil];
+}
+
+- (void)sleepForRandomInterval
+{
+    double interval =(rand() % 1000) / 1000.0;
+    sleep(interval);
 }
 
 - (BOOL)isFeelingWell
 {
-    return rand() <  0.5 * ((double)RAND_MAX + 1.0);
+    return rand() <  0.8 * ((double)RAND_MAX + 1.0);
 }
 
 @end

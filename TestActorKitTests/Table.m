@@ -12,9 +12,10 @@
 #import "Philosopher.h"
 
 NSUInteger const CHOPSTICK_FREE = 0;
-NSUInteger const  CHOPSTICK_USED = 1;
+NSUInteger const CHOPSTICK_USED = 1;
 
 @implementation Table
+
 - (instancetype)initWithChopsticks:(NSUInteger)chopSticks
 {
     self = [super init];
@@ -48,7 +49,7 @@ NSUInteger const  CHOPSTICK_USED = 1;
 - (void)hungry:(NSString *)name
 {
     if (![self.philosophers containsObject:name]) {
-        NSLog(@"ERROR: A philosopher %@ is not even sat down", name);
+        NSLog(@"ERROR: philosopher %@ is not even sat down", name);
     }
     NSUInteger index = [self.philosophers indexOfObject:name];
     NSUInteger leftPosition = index;
@@ -65,7 +66,7 @@ NSUInteger const  CHOPSTICK_USED = 1;
         [philosopher.async eat];
         
         if (self.eating.count == self.chopsticks.count) {
-            NSLog(@"ERROR: TOO MANY PHILOSOPHERS ARE EATING");
+            NSLog(@"ERROR: too many philosophers are eating");
         }
     } else {
         [self printTableStatus];
@@ -78,7 +79,7 @@ NSUInteger const  CHOPSTICK_USED = 1;
 - (void)dropChopsticks:(NSString *)name
 {
     if (![self.philosophers containsObject:name]) {
-        NSLog(@"ERROR: A philosopher %@ is not even sat down", name);
+        NSLog(@"ERROR: philosopher %@ is not even sat down", name);
     }
     NSUInteger index = [self.philosophers indexOfObject:name];
     NSUInteger leftPosition = index;
