@@ -2,9 +2,16 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 use_frameworks!
 
-target 'TestActorKit', :exclusive => true do
+def base_pods
   pod 'ActorKit/Promises', :path => '../Libraries/ActorKit'
   pod 'ActorKit/Supervision', :path => '../Libraries/ActorKit'
   pod 'AFNetworking'
-  pod 'GHRunLoopWatchdog', :git => 'git@gist.github.com:3ba577142a0198a0459d.git'
+end
+
+target 'TestActorKit', :exclusive => true do
+  base_pods
+end
+
+target 'TestActorKitTests', :exclusive => true do
+  base_pods
 end

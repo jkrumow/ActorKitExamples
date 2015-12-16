@@ -17,19 +17,8 @@
     ViewController *viewController = (ViewController *)self.window.rootViewController;
     viewController.appDelegate = self;
     
-    [self _setupRunloopWatchdog];
     [self _superviseActors];
-    
     return YES;
-}
-
-- (void)_setupRunloopWatchdog
-{
-    self.runloopWatchdog = [[GHRunLoopWatchdog alloc] initWithRunLoop:CFRunLoopGetMain()];
-    [self.runloopWatchdog startWatchingMode:kCFRunLoopCommonModes];
-    self.runloopWatchdog.didStallWithDuration = ^(NSTimeInterval duration) {
-        
-    };
 }
 
 - (void)_superviseActors
