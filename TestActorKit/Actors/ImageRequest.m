@@ -19,20 +19,24 @@
     
     __weak typeof(self) weakSelf = self;
     [_operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, UIImage *image) {
-        [weakSelf.actorQueue addOperationWithBlock:^{
-            
-            NSLog(@"received image from %@", operation.response.URL.absoluteString);
-            [weakSelf publish:@"receivedImage" payload:image];
-        }];
+        [weakSelf.async handleSuccess:image operation:operation];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [weakSelf.actorQueue addOperationWithBlock:^{
-            
-            NSLog(@"received error %@ from %@", error.localizedDescription, operation.request.URL.absoluteString);
-            [weakSelf crashWithError:error];
-        }];
+        [weakSelf.async handleError:error operation:operation];
     }];
     
     [self.actorQueue addOperation:_operation];
+}
+
+- (void)handleSuccess:(UIImage *)image operation:(AFHTTPRequestOperation *)operation
+{
+    NSLog(@"received image from %@", operation.response.URL.absoluteString);
+    [self publish:@"receivedImage" payload:image];
+}
+
+- (void)handleError:(NSError *)error operation:(AFHTTPRequestOperation *)operation
+{
+    NSLog(@"received error %@ from %@", error.localizedDescription, operation.request.URL.absoluteString);
+    [self crashWithError:error];
 }
 
 @end
