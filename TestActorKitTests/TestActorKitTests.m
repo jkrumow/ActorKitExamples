@@ -29,8 +29,8 @@
     [super tearDown];
 }
 
-- (void)testDiningPhilosophers {
-    
+- (void)testDiningPhilosophers
+{
     NSArray *names = @[@"Heraclitus", @"Aristotle", @"Epictetus", @"Schopenhauer", @"Popper"];
     
     Table *table = [[Table alloc] initWithChopsticks:names.count];
