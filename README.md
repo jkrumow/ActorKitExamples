@@ -1,6 +1,6 @@
 # ActorKit Demos
 
-This Xcode project demonstrates the practical application of the actor model using the library [github.com/tarbrain/ActorKit](https://github.com/tarbrain/ActorKit).
+This Xcode project demonstrates the practical implementation of the actor model in a Cocoa application using the library [github.com/tarbrain/ActorKit](https://github.com/tarbrain/ActorKit).
 
 ## Example App
 
@@ -8,17 +8,18 @@ The project contains an iOS application which downloads a bunch of photos off th
 
 One of the actors in the pool will crash and be re-created by the pool's supervisor.
 
-## Example scenario
+## Dining Philosophers Problem
 
-The project contains a simple unit test setup which demonstrates the solution of the [dining philosophers problem](https://en.wikipedia.org/wiki/Dining_philosophers_problem).
+The project contains a unit test setup which demonstrates the solution of the [Dining Philosophers Problem](https://en.wikipedia.org/wiki/Dining_philosophers_problem).
 
-5 separate philosopher actors are seated around a table actor. The philosophers can think or eat while sharing chopsticks provided by the table.
+Five separate philosopher actors are seated around a table actor. The philosophers can think or eat while sharing chopsticks provided by the table.
 
-The philosophers are supervised which means they can also get sick and barf across the table (while holding the chopsticks still in their hands). The supervisor then will restore its philosopher so he can resume eating until he has enough.
+The philosophers are supervised. They can get sick and barf across the table while keeping the chopsticks still occupied. The philopher's supervisor then will place the sick philosopher back at the table so he can resume eating until he has enough.
 
 The actors will log their activities to the console:
 
 ```sh
+TestActorKit[2965:267496] Heraclitus is eating
 TestActorKit[2965:267498] Aristotle gets hungry
 TestActorKit[2965:267498] Epictetus is eating
 TestActorKit[2965:267499] | eating: Heraclitus Epictetus chopsticks: 1 1 1 1 0 |
@@ -78,3 +79,7 @@ TestActorKit[2965:267500] Schopenhauer gets hungry
 TestActorKit[2965:267496] Epictetus is thinking
 TestActorKit[2965:267495] | eating: Heraclitus chopsticks: 1 1 0 0 0 |
 ```
+
+## Author
+
+Julian Krumow, julian.krumow@tarbrain.com
