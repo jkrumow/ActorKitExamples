@@ -76,8 +76,8 @@ TestActorKit[2965:267495] Epictetus burps
 TestActorKit[2965:267500] Popper is thinking
 TestActorKit[2965:267496] | eating: Epictetus Heraclitus chopsticks: 1 1 1 1 0 |
 TestActorKit[2965:267500] Schopenhauer gets hungry
-TestActorKit[2965:267496] Epictetus is thinking
-TestActorKit[2965:267495] | eating: Heraclitus chopsticks: 1 1 0 0 0 |
+TestActorKit[2965:267495] Epictetus is thinking
+TestActorKit[2965:267496] | eating: Heraclitus chopsticks: 1 1 0 0 0 |
 ```
 
 ## Author
