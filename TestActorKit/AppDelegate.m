@@ -34,22 +34,23 @@
 
 - (void)fetchImages
 {
-    NSArray *imageUrls = @[
-                           [NSURL URLWithString:@"http://www.queenworld.com/cmsAdmin/uploads/mainpage_image_the_band_bw.png"],
-                           [NSURL URLWithString:@"http://i1.ytimg.com/vi/a01QQZyl-_I/0.jpg"],
-                           [NSURL URLWithString:@"https://gp1.wac.edgecastcdn.net/802892/production_public/Artist/133886/image/small/220px-QueenBand.jpg"],
-                           [NSURL URLWithString:@"http://resources3.news.com.au/images/2014/05/19/1226923/257987-b1efbfea-df26-11e3-ada0-03258d7c0c20.jpg"],
-                           [NSURL URLWithString:@"http://chantduchoeur.de/blog/wp-content/uploads/2012/02/queen.jpg"],
-                           [NSURL URLWithString:@"http://static.guim.co.uk/sys-images/Music/Pix/pictures/2011/9/20/1316514596907/Queen-in-the-late-70s-006.jpg"],
-                           [NSURL URLWithString:@"http://www.queen-tribute.de/band90.JPG"],
-                           [NSURL URLWithString:@"http://images.zeit.de/kultur/musik/2014-01/queen/queen-540x304.jpg"],
-                           [NSURL URLWithString:@"http://resources1.news.com.au/images/2014/05/19/1226923/258041-270da4d2-df26-11e3-ada0-03258d7c0c20.jpg"],
-                           [NSURL URLWithString:@"https://upload.wikimedia.org/wikipedia/commons/2/29/Queen_1976.JPG"],
-                           [NSURL URLWithString:@"http://i.telegraph.co.uk/multimedia/archive/01906/Queen_1906434c.jpg"],
-                           [NSURL URLWithString:@"httpx://i.dailymail.co.uk/i/pix/2009/04/18/article-1169307-01EC3A8F0000044D-100_306x469.jpg"],
-                           ];
     
-    [[TBActorSupervisionPool.sharedInstance[@"imageFetcher"] async] fetchImages:imageUrls];
+    [[TBActorSupervisionPool.sharedInstance[@"imageFetcher"] async] fetchImages:self.imageURLs];
+}
+
+- (NSArray *)imageURLs
+{
+    if (_imageURLs == nil) {
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"image_urls" ofType:@"json"];
+        NSString *jsonString = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+        NSArray *urlStrings = [NSJSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil];
+        NSMutableArray *urls = [NSMutableArray new];
+        for (NSString *urlString in urlStrings) {
+            [urls addObject:[NSURL URLWithString:urlString]];
+        }
+        _imageURLs = urls;
+    }
+    return _imageURLs;
 }
 
 @end

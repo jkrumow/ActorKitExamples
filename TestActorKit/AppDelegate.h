@@ -10,8 +10,8 @@
 #import <ActorKit/Supervision.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
-
 @property (nonatomic) UIWindow *window;
+@property (nonatomic) NSArray *imageURLs;
 
 - (void)fetchImages;
 @end

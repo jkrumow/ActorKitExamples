@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1521CBC01C69406200FBB83C /* image_urls.json in Resources */ = {isa = PBXBuildFile; fileRef = 1521CBBF1C69406200FBB83C /* image_urls.json */; };
 		15319AAE1C20CA040077987B /* Table.m in Sources */ = {isa = PBXBuildFile; fileRef = 15319AAD1C20CA040077987B /* Table.m */; };
 		15319AB11C20CA0F0077987B /* Philosopher.m in Sources */ = {isa = PBXBuildFile; fileRef = 15319AB01C20CA0F0077987B /* Philosopher.m */; };
 		153F4AA71B8680E500BA99B2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 153F4AA61B8680E500BA99B2 /* main.m */; };
@@ -35,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		0F254ECEE4EBD6904821640B /* Pods-TestActorKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestActorKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-TestActorKit/Pods-TestActorKit.release.xcconfig"; sourceTree = "<group>"; };
+		1521CBBF1C69406200FBB83C /* image_urls.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = image_urls.json; sourceTree = "<group>"; };
 		15319AAC1C20CA040077987B /* Table.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Table.h; sourceTree = "<group>"; };
 		15319AAD1C20CA040077987B /* Table.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Table.m; sourceTree = "<group>"; };
 		15319AAF1C20CA0F0077987B /* Philosopher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Philosopher.h; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				153F4AB31B8680E500BA99B2 /* LaunchScreen.xib */,
 				153F4AAE1B8680E500BA99B2 /* Main.storyboard */,
 				153F4AA41B8680E500BA99B2 /* Supporting Files */,
+				1521CBBF1C69406200FBB83C /* image_urls.json */,
 			);
 			path = TestActorKit;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				153F4AB01B8680E500BA99B2 /* Main.storyboard in Resources */,
 				153F4AB51B8680E500BA99B2 /* LaunchScreen.xib in Resources */,
 				153F4AB21B8680E500BA99B2 /* Images.xcassets in Resources */,
+				1521CBC01C69406200FBB83C /* image_urls.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
