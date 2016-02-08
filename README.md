@@ -1,4 +1,4 @@
-# ActorKit Demos
+# ActorKit Examples
 
 This Xcode project demonstrates the practical implementation of the actor model in a Cocoa application using the library [github.com/tarbrain/ActorKit](https://github.com/tarbrain/ActorKit).
 
