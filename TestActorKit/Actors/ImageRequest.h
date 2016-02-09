@@ -8,9 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <AFNetworking/AFNetworking.h>
+#import <ActorKit/Supervision.h>
 
 @interface ImageRequest : NSObject
-@property (nonatomic, readonly) AFHTTPRequestOperation *operation;
-
 - (void)fetchImageAtUrl:(NSURL *)url;
 @end

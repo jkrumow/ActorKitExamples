@@ -7,24 +7,23 @@
 //
 
 #import "ImageRequest.h"
-#import <ActorKit/Supervision.h>
 
 @implementation ImageRequest
 
 - (void)fetchImageAtUrl:(NSURL *)url
 {
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    _operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    _operation.responseSerializer = [AFImageResponseSerializer serializer];
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    operation.responseSerializer = [AFImageResponseSerializer serializer];
     
     __weak typeof(self) weakSelf = self;
-    [_operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, UIImage *image) {
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, UIImage *image) {
         [weakSelf.async handleSuccess:image operation:operation];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [weakSelf.async handleError:error operation:operation];
     }];
     
-    [self.actorQueue addOperation:_operation];
+    [self.actorQueue addOperation:operation];
 }
 
 - (void)handleSuccess:(UIImage *)image operation:(AFHTTPRequestOperation *)operation

@@ -40,7 +40,8 @@
     [self.priv_images removeAllObjects];
     
     for (NSURL *url in urls) {
-        [[TBActorSupervisionPool.sharedInstance[@"fetcherPool"] async] fetchImageAtUrl:url];
+        TBActorPool *pool = self.supervisor.supervisionPool[@"fetcherPool"];
+        [pool.async fetchImageAtUrl:url];
     }
 }
 
