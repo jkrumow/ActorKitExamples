@@ -54,6 +54,7 @@
 		153F4ABA1B8680E500BA99B2 /* TestActorKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestActorKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		153F4ABF1B8680E500BA99B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		153F4AC01B8680E500BA99B2 /* TestActorKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestActorKitTests.m; sourceTree = "<group>"; };
+		156B08EC1C6A8254005B036A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		15B959D71BAB6DE900D115F6 /* ImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCell.h; sourceTree = "<group>"; };
 		15B959D81BAB6DE900D115F6 /* ImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCell.m; sourceTree = "<group>"; };
 		15B959DC1BAB72B600D115F6 /* ImageFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageFetcher.h; sourceTree = "<group>"; };
@@ -101,6 +102,7 @@
 		153F4A981B8680E500BA99B2 = {
 			isa = PBXGroup;
 			children = (
+				156B08EB1C6A822C005B036A /* Meta */,
 				153F4AA31B8680E500BA99B2 /* TestActorKit */,
 				153F4ABD1B8680E500BA99B2 /* TestActorKitTests */,
 				153F4AA21B8680E500BA99B2 /* Products */,
@@ -159,6 +161,14 @@
 				153F4ABF1B8680E500BA99B2 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		156B08EB1C6A822C005B036A /* Meta */ = {
+			isa = PBXGroup;
+			children = (
+				156B08EC1C6A8254005B036A /* README.md */,
+			);
+			name = Meta;
 			sourceTree = "<group>";
 		};
 		15B959DA1BAB725A00D115F6 /* User Interface */ = {
