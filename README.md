@@ -18,7 +18,7 @@ The philosophers are supervised. They can get sick and barf across the table whi
 
 The actors will log their activities to the console:
 
-```sh
+```
 TestActorKit[2965:267496] Heraclitus is eating
 TestActorKit[2965:267498] Aristotle gets hungry
 TestActorKit[2965:267498] Epictetus is eating
