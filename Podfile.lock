@@ -1,9 +1,9 @@
 PODS:
-  - ActorKit/Core (0.22.0)
-  - ActorKit/Promises (0.22.0):
+  - ActorKit/Core (0.25.0)
+  - ActorKit/Promises (0.25.0):
     - ActorKit/Core
     - PromiseKit/CorePromise (~> 3.0)
-  - ActorKit/Supervision (0.22.0):
+  - ActorKit/Supervision (0.25.0):
     - ActorKit/Core
   - AFNetworking (2.6.3):
     - AFNetworking/NSURLConnection (= 2.6.3)
@@ -26,7 +26,7 @@ PODS:
   - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - PromiseKit/CorePromise (3.0.2)
+  - PromiseKit/CorePromise (3.1.0)
 
 DEPENDENCIES:
   - ActorKit/Promises (from `../Libraries/ActorKit`)
@@ -38,8 +38,8 @@ EXTERNAL SOURCES:
     :path: "../Libraries/ActorKit"
 
 SPEC CHECKSUMS:
-  ActorKit: 7fa03032e0b9ca77650d351b1df88f9cef43631f
+  ActorKit: d6f202e45a06a33d892e018c32b9fbbdd47c1a9e
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
-  PromiseKit: ab1a380f7a30cf8cce663a2411e8b3580b10313d
+  PromiseKit: 7ed2a3fc5217695305a55a8c47cb3a17ff5fde0d
 
 COCOAPODS: 0.39.0

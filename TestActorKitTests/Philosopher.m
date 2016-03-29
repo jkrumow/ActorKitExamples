@@ -20,6 +20,8 @@
         _name = name;
         _table = table;
         
+        srand ((unsigned int)time(NULL));
+        
         [self.table.async welcome:self.name];
     }
     return self;
@@ -59,13 +61,17 @@
 
 - (void)sleepForRandomInterval
 {
-    double interval =(rand() % 1000) / 1000.0;
-    sleep(interval);
+    sleep(randomNumberInRange(0, 1000) / 1000.0);
 }
 
 - (BOOL)isFeelingWell
 {
-    return rand() <  0.8 * ((double)RAND_MAX + 1.0);
+    return (randomNumberInRange(0, 9) <  8);
+}
+
+NSInteger randomNumberInRange(NSInteger from, NSInteger to)
+{
+    return to + rand() / (RAND_MAX / (from - to + 1) + 1);
 }
 
 @end
