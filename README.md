@@ -14,7 +14,7 @@ The project contains a unit test setup which demonstrates the solution of the [D
 
 Five separate philosopher actors are seated around a table actor. The philosophers can think or eat while sharing chopsticks provided by the table.
 
-### Supervised philosophers
+### Supervised Philosophers
 
 In this example the philosophers are supervised. They can get sick and barf across the table while keeping the chopsticks still occupied. The philopher's supervisor then will place the sick philosopher back at the table so he can resume eating until he has enough.
 
