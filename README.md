@@ -1,6 +1,6 @@
 # ActorKit Examples
 
-This Xcode project demonstrates the practical implementation of the actor model in a Cocoa application using the library [github.com/tarbrain/ActorKit](https://github.com/tarbrain/ActorKit).
+This Xcode project demonstrates the practical implementation of the actor model in a Cocoa application using the library [github.com/jkrumow/ActorKit](https://github.com/jkrumow/ActorKit).
 
 ## Example App
 
@@ -84,4 +84,4 @@ TestActorKit[2965:267496] | eating: Heraclitus chopsticks: 1 1 0 0 0 |
 
 ## Author
 
-Julian Krumow, julian.krumow@tarbrain.com
+Julian Krumow, julian.krumow@bogusmachine.com
