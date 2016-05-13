@@ -2,20 +2,14 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 use_frameworks!
 
-def base_pods
+abstract_target 'BasePods' do
   pod 'ActorKit/Promises'
   pod 'ActorKit/Supervision'
-end
 
-def networking
-	pod 'AFNetworking'
-end
+	target 'TestActorKit' do
+	  pod 'AFNetworking', '~> 2.6'
+	end
 
-target 'TestActorKit', :exclusive => true do
-  base_pods
-  networking
-end
-
-target 'TestActorKitTests', :exclusive => true do
-  base_pods
+	target 'TestActorKitTests' do
+	end
 end
