@@ -56,7 +56,7 @@
     NSLog(@"%@ barfs", self.name);
     
     NSString *message = [NSString stringWithFormat:@"%@ got sick.", self.name];
-    @throw [NSException exceptionWithName:@"org.philosopher.error" reason:message userInfo:nil];
+    @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:message userInfo:nil];
 }
 
 - (void)sleepForRandomInterval

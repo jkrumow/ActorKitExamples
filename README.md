@@ -41,7 +41,7 @@ TestActorKit[2965:267500] | eating: Epictetus chopsticks: 0 0 1 1 0 |
 TestActorKit[2965:267496] Aristotle gets hungry
 TestActorKit[2965:267496] Schopenhauer is thinking
 TestActorKit[2965:267500] | eating: Epictetus Popper chopsticks: 1 0 1 1 1 |
-TestActorKit[2965:267488] Actor 'Epictetus' <0x7fa479c23fa0> did crash with error: Exception in actor operation: org.philosopher.error, 'Epictetus got sick.', at: (
+TestActorKit[2965:267488] Actor 'Epictetus' <0x7fa479c23fa0> crashed: Exception in actor operation: NSInternalInconsistencyException, 'Epictetus got sick.', at: (
 	0   CoreFoundation           0x000000010e267e65 __exceptionPreprocess + 165
 	1   libobjc.A.dylib          0x000000010dce0deb objc_exception_throw + 48
 	2   TestActorKitTests        0x000000011ba1d6f1 -[Philosopher barf] + 353
