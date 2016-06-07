@@ -2,6 +2,13 @@
 
 This Xcode project demonstrates the practical implementation of the actor model in a Cocoa application using the library [github.com/jkrumow/ActorKit](https://github.com/jkrumow/ActorKit).
 
+## Installation
+
+```sh
+$ bundle install
+$ bundle exec pod install
+```
+
 ## Example App
 
 The project contains an iOS application which downloads a bunch of photos off the internet using a supervised pool of actors, each downloading one or more images.
