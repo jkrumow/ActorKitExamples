@@ -26,7 +26,7 @@ PODS:
   - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - PromiseKit/CorePromise (3.1.1)
+  - PromiseKit/CorePromise (3.2.0)
 
 DEPENDENCIES:
   - ActorKit/Promises
@@ -36,7 +36,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   ActorKit: d9595f1606a680b265d1cb2261d98f5a4c50de09
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
-  PromiseKit: 4e8127c22a9b29d1b44958ab2ec762ea6115cbfb
+  PromiseKit: 1db024241265f428137a9f3c00ff9590740c4be6
 
 PODFILE CHECKSUM: 9ece946ca2ec562c56609b7a1656237dad7e59d5
 
