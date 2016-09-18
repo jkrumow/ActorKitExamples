@@ -13,12 +13,13 @@
 
 @implementation Philosopher
 
-- (instancetype)initWithName:(NSString *)name table:(Table *)table
+- (instancetype)initWithName:(NSString *)name table:(Table *)table sensitive:(BOOL)sensitive
 {
     self = [super init];
     if (self) {
         _name = name;
         _table = table;
+        _sensitive = sensitive;
         
         srand ((unsigned int)time(NULL));
         
@@ -66,7 +67,10 @@
 
 - (BOOL)isFeelingWell
 {
-    return (randomNumberInRange(0, 9) <  8);
+    if (self.isSensitive) {
+        return (randomNumberInRange(0, 9) <  8);
+    }
+    return YES;
 }
 
 NSInteger randomNumberInRange(NSInteger from, NSInteger to)

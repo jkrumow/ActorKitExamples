@@ -28,6 +28,9 @@ NSUInteger const CHOPSTICK_USED = 1;
             [_chopsticks addObject:@(CHOPSTICK_FREE)];
         }
     }
+    
+    NSLog(@"Table is ready to serve you.");
+    
     return self;
 }
 
