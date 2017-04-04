@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1421" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -14,11 +18,11 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7dL-r7-Pr3">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="603"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dcD-05-gvR">
                                     <size key="itemSize" width="80" height="80"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -35,9 +39,9 @@
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YPi-qM-HyU">
                                                     <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                 </imageView>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
                                             <constraint firstItem="YPi-qM-HyU" firstAttribute="leading" secondItem="IwE-Ls-x70" secondAttribute="leading" id="5od-pu-kmp"/>
@@ -56,7 +60,7 @@
                                 </connections>
                             </collectionView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i8x-KC-zOc">
-                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
                                     <barButtonItem systemItem="refresh" id="IVH-ZO-xeD">
                                         <connections>
@@ -66,24 +70,25 @@
                                 </items>
                             </toolbar>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="7dL-r7-Pr3" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="Duk-Ya-jKd"/>
+                            <constraint firstItem="i8x-KC-zOc" firstAttribute="top" secondItem="7dL-r7-Pr3" secondAttribute="bottom" id="RxR-de-cEb"/>
                             <constraint firstItem="i8x-KC-zOc" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="eYO-dn-y7M"/>
                             <constraint firstItem="i8x-KC-zOc" firstAttribute="leading" secondItem="7dL-r7-Pr3" secondAttribute="leading" id="f2o-Qe-4PN"/>
                             <constraint firstItem="7dL-r7-Pr3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="gho-xT-06h"/>
                             <constraint firstAttribute="trailing" secondItem="7dL-r7-Pr3" secondAttribute="trailing" id="jUF-wY-8x6"/>
                             <constraint firstItem="i8x-KC-zOc" firstAttribute="trailing" secondItem="7dL-r7-Pr3" secondAttribute="trailing" id="lCS-at-Hci"/>
-                            <constraint firstItem="7dL-r7-Pr3" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="q4N-Cx-6Df"/>
+                            <constraint firstItem="7dL-r7-Pr3" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" id="q4N-Cx-6Df"/>
                         </constraints>
                     </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="7dL-r7-Pr3" id="EWk-EM-ZBf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="533" y="436"/>
+            <point key="canvasLocation" x="532" y="435.83208395802103"/>
         </scene>
     </scenes>
 </document>
