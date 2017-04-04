@@ -1,13 +1,13 @@
 PODS:
-  - ActorKit/Core (0.55.0)
-  - ActorKit/Supervision (0.55.0):
+  - ActorKit/Core (1.0.0)
+  - ActorKit/Supervision (1.0.0):
     - ActorKit/Core
 
 DEPENDENCIES:
   - ActorKit/Supervision
 
 SPEC CHECKSUMS:
-  ActorKit: acf17c8553ff228a56b02cea80a1c6fc6142b76b
+  ActorKit: 35852431503fe53817781c13e03229c20e14ef64
 
 PODFILE CHECKSUM: 300961af2c4bdda52514a3c2bf991c3c9b0545a8
 
