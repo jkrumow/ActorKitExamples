@@ -13,28 +13,33 @@
 - (void)fetchImageAtUrl:(NSURL *)url
 {
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    operation.responseSerializer = [AFImageResponseSerializer serializer];
+    NSURLResponse *response = nil;
+    NSError *error = nil;
+    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    if (error) {
+        [self handleError:error url:url];
+        return;
+    }
     
-    __weak typeof(self) weakSelf = self;
-    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, UIImage *image) {
-        [weakSelf.async handleSuccess:image operation:operation];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [weakSelf.async handleError:error operation:operation];
-    }];
-    
-    [self.actorQueue addOperation:operation];
+    UIImage *image = [UIImage imageWithData:data];
+    if (image == nil) {
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+        NSError *httpError = [NSError errorWithDomain:NSURLErrorDomain code:404 userInfo:nil];
+        [self handleError:httpError url:httpResponse.URL];
+        return;
+    }
+    [self handleSuccess:image url:url];
 }
 
-- (void)handleSuccess:(UIImage *)image operation:(AFHTTPRequestOperation *)operation
+- (void)handleSuccess:(UIImage *)image url:(NSURL *)url
 {
-    NSLog(@"received image from %@", operation.response.URL.absoluteString);
+    NSLog(@"received image from %@", url.absoluteString);
     [self publish:@"receivedImage" payload:image];
 }
 
-- (void)handleError:(NSError *)error operation:(AFHTTPRequestOperation *)operation
+- (void)handleError:(NSError *)error url:(NSURL *)url
 {
-    NSLog(@"received error %@ from %@", error.localizedDescription, operation.request.URL.absoluteString);
+    NSLog(@"received error %@ from %@", error.localizedDescription, url.absoluteString);
     [self crashWithError:error];
 }
 

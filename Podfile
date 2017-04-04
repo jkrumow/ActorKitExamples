@@ -6,7 +6,6 @@ abstract_target 'BasePods' do
   pod 'ActorKit/Supervision'
 
 	target 'TestActorKit' do
-	  pod 'AFNetworking', '~> 2.6'
 	end
 
 	target 'TestActorKitTests' do

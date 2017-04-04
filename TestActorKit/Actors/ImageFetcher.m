@@ -40,6 +40,7 @@
     [self.priv_images removeAllObjects];
     
     for (NSURL *url in urls) {
+        [self.priv_images addObject:[NSNull null]];
         TBActorPool *pool = self.supervisor.supervisionPool[@"fetcherPool"];
         [pool.async fetchImageAtUrl:url];
     }
@@ -47,6 +48,7 @@
 
 - (void)_handleImage:(UIImage *)image
 {
+    [self.priv_images removeObjectAtIndex:0];
     [self.priv_images addObject:image];
     [self publish:@"receivedImages" payload:self.images];
 }

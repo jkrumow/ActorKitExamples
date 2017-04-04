@@ -2,36 +2,13 @@ PODS:
   - ActorKit/Core (0.55.0)
   - ActorKit/Supervision (0.55.0):
     - ActorKit/Core
-  - AFNetworking (2.6.3):
-    - AFNetworking/NSURLConnection (= 2.6.3)
-    - AFNetworking/NSURLSession (= 2.6.3)
-    - AFNetworking/Reachability (= 2.6.3)
-    - AFNetworking/Security (= 2.6.3)
-    - AFNetworking/Serialization (= 2.6.3)
-    - AFNetworking/UIKit (= 2.6.3)
-  - AFNetworking/NSURLConnection (2.6.3):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.6.3):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.6.3)
-  - AFNetworking/Security (2.6.3)
-  - AFNetworking/Serialization (2.6.3)
-  - AFNetworking/UIKit (2.6.3):
-    - AFNetworking/NSURLConnection
-    - AFNetworking/NSURLSession
 
 DEPENDENCIES:
   - ActorKit/Supervision
-  - AFNetworking (~> 2.6)
 
 SPEC CHECKSUMS:
   ActorKit: acf17c8553ff228a56b02cea80a1c6fc6142b76b
-  AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
 
-PODFILE CHECKSUM: 7b0e374caa58a31570d95b422c3273d702a115fa
+PODFILE CHECKSUM: 300961af2c4bdda52514a3c2bf991c3c9b0545a8
 
 COCOAPODS: 1.2.0
