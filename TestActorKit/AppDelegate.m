@@ -27,8 +27,8 @@
         return [ImageFetcher new];
     }];
     
-    [TBActorSupervisionPool.sharedInstance superviseWithId:@"fetcherPool" creationBlock:^NSObject * _Nonnull {
-        return [ImageRequest poolWithSize:10 configuration:nil];
+    [TBActorSupervisionPool.sharedInstance superviseWithId:@"imageRequest" creationBlock:^NSObject * _Nonnull {
+        return [ImageRequest new];
     }];
 }
 

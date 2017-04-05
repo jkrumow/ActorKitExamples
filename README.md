@@ -11,9 +11,7 @@ $ bundle exec pod install
 
 ## Example App
 
-The project contains an iOS application which downloads a bunch of photos off the internet using a supervised pool of actors, each downloading one or more images.
-
-One of the actors in the pool will crash and be re-created by the pool's supervisor.
+The project contains an iOS application which downloads a bunch of photos off the internet using a supervised set of actors, downloading images. From time to time one of the actors will crash and be recreated by it's supervisor.
 
 ## Dining Philosophers Problem
 

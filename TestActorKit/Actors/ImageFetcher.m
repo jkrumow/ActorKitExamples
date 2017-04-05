@@ -41,8 +41,8 @@
     
     for (NSURL *url in urls) {
         [self.priv_images addObject:[NSNull null]];
-        TBActorPool *pool = self.supervisor.supervisionPool[@"fetcherPool"];
-        [pool.async fetchImageAtUrl:url];
+        ImageRequest *request = self.supervisor.supervisionPool[@"imageRequest"];
+        [request.async fetchImageAtUrl:url];
     }
 }
 
