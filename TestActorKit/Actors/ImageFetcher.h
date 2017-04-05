@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import <ActorKit/Promises.h>
 #import <ActorKit/Supervision.h>
 
 #import "ImageRequest.h"
@@ -17,4 +16,5 @@
 @property (nonatomic, readonly) NSArray *images;
 
 - (void)fetchImages:(NSArray *)urls;
+- (void)updateImage:(UIImage *)image;
 @end

@@ -7,10 +7,11 @@
 //
 
 #import "ImageRequest.h"
+#import "ImageFetcher.h"
 
 @implementation ImageRequest
 
-- (UIImage *)fetchImageAtUrl:(NSURL *)url
+- (void)fetchImageAtUrl:(NSURL *)url
 {
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     NSError *error = nil;
@@ -22,7 +23,9 @@
     if (image == nil) {
         @throw [NSException exceptionWithName:NSGenericException reason:@"No image data." userInfo:nil];
     }
-    return image;
+    
+    ImageFetcher *fetcher = self.supervisor.supervisionPool[@"imageFetcher"];
+    [fetcher.async updateImage:image];
 }
 
 @end

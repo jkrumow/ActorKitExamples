@@ -35,17 +35,11 @@
     for (NSURL *url in urls) {
         [self.priv_images addObject:[NSNull null]];
         ImageRequest *request = self.supervisor.supervisionPool[@"imageRequest"];
-        
-        ((AnyPromise *)[request.promise fetchImageAtUrl:url])
-        .then(^(UIImage *image) {
-            if (image) {
-                [self.sync _handleImage:image];
-            }
-        });
+        [request.async fetchImageAtUrl:url];
     }
 }
 
-- (void)_handleImage:(UIImage *)image
+- (void)updateImage:(UIImage *)image
 {
     [self.priv_images removeObjectAtIndex:0];
     [self.priv_images addObject:image];
