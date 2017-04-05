@@ -10,37 +10,19 @@
 
 @implementation ImageRequest
 
-- (void)fetchImageAtUrl:(NSURL *)url
+- (UIImage *)fetchImageAtUrl:(NSURL *)url
 {
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    NSURLResponse *response = nil;
     NSError *error = nil;
-    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
     if (error) {
-        [self handleError:error url:url];
-        return;
+        @throw [NSException exceptionWithName:NSGenericException reason:error.localizedDescription userInfo:nil];
     }
-    
     UIImage *image = [UIImage imageWithData:data];
     if (image == nil) {
-        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
-        NSError *httpError = [NSError errorWithDomain:NSURLErrorDomain code:404 userInfo:nil];
-        [self handleError:httpError url:httpResponse.URL];
-        return;
+        @throw [NSException exceptionWithName:NSGenericException reason:@"No image data." userInfo:nil];
     }
-    [self handleSuccess:image url:url];
-}
-
-- (void)handleSuccess:(UIImage *)image url:(NSURL *)url
-{
-    NSLog(@"received image from %@", url.absoluteString);
-    [self publish:@"receivedImage" payload:image];
-}
-
-- (void)handleError:(NSError *)error url:(NSURL *)url
-{
-    NSLog(@"received error %@ from %@", error.localizedDescription, url.absoluteString);
-    [self crashWithError:error];
+    return image;
 }
 
 @end

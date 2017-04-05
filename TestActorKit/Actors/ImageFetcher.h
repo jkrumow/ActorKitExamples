@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import <ActorKit/Promises.h>
 #import <ActorKit/Supervision.h>
 
 #import "ImageRequest.h"

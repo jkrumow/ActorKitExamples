@@ -19,15 +19,8 @@
     self = [super init];
     if (self) {
         _priv_images = [NSMutableArray new];
-        
-        [self subscribe:@"receivedImage" selector:@selector(_handleImage:)];
     }
     return self;
-}
-
-- (void)dealloc
-{
-    [self unsubscribe:@"receivedImage"];
 }
 
 - (NSArray *)images
@@ -42,7 +35,13 @@
     for (NSURL *url in urls) {
         [self.priv_images addObject:[NSNull null]];
         ImageRequest *request = self.supervisor.supervisionPool[@"imageRequest"];
-        [request.async fetchImageAtUrl:url];
+        
+        ((AnyPromise *)[request.promise fetchImageAtUrl:url])
+        .then(^(UIImage *image) {
+            if (image) {
+                [self.sync _handleImage:image];
+            }
+        });
     }
 }
 

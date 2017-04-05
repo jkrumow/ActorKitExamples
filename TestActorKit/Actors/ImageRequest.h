@@ -10,5 +10,5 @@
 #import <ActorKit/Supervision.h>
 
 @interface ImageRequest : NSObject
-- (void)fetchImageAtUrl:(NSURL *)url;
+- (UIImage *)fetchImageAtUrl:(NSURL *)url;
 @end
