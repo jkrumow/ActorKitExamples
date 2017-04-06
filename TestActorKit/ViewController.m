@@ -28,6 +28,21 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_displayImages:) name:@"receivedImages" object:nil];
 }
 
+- (void)_displayImages:(NSNotification *)notification
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.images = notification.userInfo[TBAKActorPayload];
+        [self.collectionView reloadData];
+    });
+}
+
+- (IBAction)refresh:(id)sender
+{
+    [self.appDelegate fetchImages];
+}
+
+#pragma mark - UICollectionViewDelegate
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     return self.images.count;
@@ -38,23 +53,11 @@
     ImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ImageCell" forIndexPath:indexPath];
     cell.imageView.image = nil;
     
-    if (self.images[indexPath.item] != [NSNull null]) {
-        cell.imageView.image = self.images[indexPath.item];
+    id item = self.images[indexPath.item];
+    if (item != [NSNull null]) {
+        cell.imageView.image = item;
     }
     return cell;
-}
-
-- (IBAction)refresh:(id)sender
-{
-    [self.appDelegate fetchImages];
-}
-
-- (void)_displayImages:(NSNotification *)notification
-{
-    dispatch_async(dispatch_get_main_queue(), ^{
-        self.images = notification.userInfo[TBAKActorPayload];
-        [self.collectionView reloadData];
-    });
 }
 
 @end

@@ -17,6 +17,7 @@
 		153F4AB21B8680E500BA99B2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 153F4AB11B8680E500BA99B2 /* Images.xcassets */; };
 		153F4AB51B8680E500BA99B2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 153F4AB31B8680E500BA99B2 /* LaunchScreen.xib */; };
 		153F4AC11B8680E500BA99B2 /* TestActorKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 153F4AC01B8680E500BA99B2 /* TestActorKitTests.m */; };
+		156526951E96DDE100E9F9AF /* URLList.m in Sources */ = {isa = PBXBuildFile; fileRef = 156526941E96DDE100E9F9AF /* URLList.m */; };
 		15B959D91BAB6DE900D115F6 /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B959D81BAB6DE900D115F6 /* ImageCell.m */; };
 		15B959E01BAB72B600D115F6 /* ImageFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B959DD1BAB72B600D115F6 /* ImageFetcher.m */; };
 		15B959E11BAB72B600D115F6 /* ImageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B959DF1BAB72B600D115F6 /* ImageRequest.m */; };
@@ -55,6 +56,8 @@
 		153F4ABA1B8680E500BA99B2 /* TestActorKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestActorKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		153F4ABF1B8680E500BA99B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		153F4AC01B8680E500BA99B2 /* TestActorKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestActorKitTests.m; sourceTree = "<group>"; };
+		156526931E96DDE100E9F9AF /* URLList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLList.h; sourceTree = "<group>"; };
+		156526941E96DDE100E9F9AF /* URLList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLList.m; sourceTree = "<group>"; };
 		156B08EC1C6A8254005B036A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		15B959D71BAB6DE900D115F6 /* ImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCell.h; sourceTree = "<group>"; };
 		15B959D81BAB6DE900D115F6 /* ImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCell.m; sourceTree = "<group>"; };
@@ -132,12 +135,14 @@
 				15B959DB1BAB72B600D115F6 /* Actors */,
 				153F4AA81B8680E500BA99B2 /* AppDelegate.h */,
 				153F4AA91B8680E500BA99B2 /* AppDelegate.m */,
+				156526931E96DDE100E9F9AF /* URLList.h */,
+				156526941E96DDE100E9F9AF /* URLList.m */,
 				15B959DA1BAB725A00D115F6 /* User Interface */,
+				1521CBBF1C69406200FBB83C /* image_urls.json */,
 				153F4AB11B8680E500BA99B2 /* Images.xcassets */,
 				153F4AB31B8680E500BA99B2 /* LaunchScreen.xib */,
 				153F4AAE1B8680E500BA99B2 /* Main.storyboard */,
 				153F4AA41B8680E500BA99B2 /* Supporting Files */,
-				1521CBBF1C69406200FBB83C /* image_urls.json */,
 			);
 			path = TestActorKit;
 			sourceTree = "<group>";
@@ -429,6 +434,7 @@
 				153F4AAA1B8680E500BA99B2 /* AppDelegate.m in Sources */,
 				15B959E11BAB72B600D115F6 /* ImageRequest.m in Sources */,
 				153F4AA71B8680E500BA99B2 /* main.m in Sources */,
+				156526951E96DDE100E9F9AF /* URLList.m in Sources */,
 				15B959E01BAB72B600D115F6 /* ImageFetcher.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
