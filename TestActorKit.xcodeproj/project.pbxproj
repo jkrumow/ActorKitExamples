@@ -275,7 +275,7 @@
 		153F4A991B8680E500BA99B2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Julian Krumow";
 				TargetAttributes = {
 					153F4AA01B8680E500BA99B2 = {
@@ -564,6 +564,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 040D3D12CE494DC55EA001DB /* Pods-BasePods-TestActorKit.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = TestActorKit/Info.plist;
@@ -577,6 +578,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3AA9D75D12B9DFA0040C81DB /* Pods-BasePods-TestActorKit.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = TestActorKit/Info.plist;
@@ -590,6 +592,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FB36227B88FDDEDE593981B7 /* Pods-BasePods-TestActorKitTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -606,6 +609,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AE441C3AB80C5C5A0770F9AE /* Pods-BasePods-TestActorKitTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = TestActorKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
