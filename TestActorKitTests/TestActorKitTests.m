@@ -15,8 +15,7 @@
 
 @interface TestActorKitTests : XCTestCase
 
-@property (nonatomic) NSArray *names;
-@property (nonatomic) Table *table;
+@property (nonatomic) NSArray *philosophers;
 @end
 
 @implementation TestActorKitTests
@@ -25,29 +24,31 @@
 {
     [super setUp];
     
-    _names = @[@"Heraclitus", @"Aristotle", @"Epictetus", @"Schopenhauer", @"Popper"];
-    _table = [[Table alloc] initWithChopsticks:self.names.count];
+    _philosophers = @[@"Heraclitus", @"Aristotle", @"Epictetus", @"Schopenhauer", @"Popper"];
+    
+    [TBActorSupervisionPool.sharedInstance superviseWithId:@"table" creationBlock:^NSObject * _Nonnull {
+        return [[Table alloc] initWithChopsticks:self.philosophers.count];
+    }];
 }
 
 - (void)tearDown
 {
-    [self.table tbak_suspend];
+    [TBActorSupervisionPool.sharedInstance[@"table"] tbak_suspend];
+    [TBActorSupervisionPool.sharedInstance unsuperviseActorWithId:@"table"];
     
-    for (NSString *name in self.names) {
+    for (NSString *name in self.philosophers) {
         [TBActorSupervisionPool.sharedInstance[name] tbak_suspend];
-    }
-    
-    for (NSString *name in self.names) {
         [TBActorSupervisionPool.sharedInstance unsuperviseActorWithId:name];
     }
+    
     [super tearDown];
 }
 
 - (void)testDiningPhilosophers
 {
-    for (NSString *name in self.names) {
+    for (NSString *name in self.philosophers) {
         [TBActorSupervisionPool.sharedInstance superviseWithId:name creationBlock:^NSObject * _Nonnull {
-            return [[Philosopher alloc] initWithName:name table:self.table sensitive:NO];
+            return [[Philosopher alloc] initWithName:name sensitive:NO];
         }];
     }
     
@@ -58,9 +59,9 @@
 
 - (void)testDiningPhilosophersSensitive
 {
-    for (NSString *name in self.names) {
+    for (NSString *name in self.philosophers) {
         [TBActorSupervisionPool.sharedInstance superviseWithId:name creationBlock:^NSObject * _Nonnull {
-            return [[Philosopher alloc] initWithName:name table:self.table sensitive:YES];
+            return [[Philosopher alloc] initWithName:name sensitive:YES];
         }];
     }
     

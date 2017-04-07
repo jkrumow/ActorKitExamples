@@ -13,12 +13,11 @@
 
 @implementation Philosopher
 
-- (instancetype)initWithName:(NSString *)name table:(Table *)table sensitive:(BOOL)sensitive
+- (instancetype)initWithName:(NSString *)name sensitive:(BOOL)sensitive
 {
     self = [super init];
     if (self) {
         _name = name;
-        _table = table;
         _sensitive = sensitive;
         
         srand ((unsigned int)time(NULL));
@@ -26,6 +25,11 @@
         [self.table.async welcome:self.name];
     }
     return self;
+}
+
+- (Table *)table
+{
+    return TBActorSupervisionPool.sharedInstance[@"table"];
 }
 
 - (void)think

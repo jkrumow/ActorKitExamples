@@ -12,10 +12,9 @@
 @interface Philosopher : NSObject
 
 @property (nonatomic) NSString *name;
-@property (nonatomic) Table *table;
 @property (nonatomic, assign, getter=isSensitive) BOOL sensitive;
 
-- (instancetype)initWithName:(NSString *)name table:(Table *)table sensitive:(BOOL)sensitive;
+- (instancetype)initWithName:(NSString *)name sensitive:(BOOL)sensitive;
 - (void)think;
 - (void)eat;
 - (void)barf;
