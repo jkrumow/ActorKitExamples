@@ -60,7 +60,8 @@ NSUInteger const CHOPSTICK_USED = 1;
     NSUInteger leftPosition = index;
     NSUInteger rightPosition = (index + 1) % self.chopsticks.count;
     
-    if ([self.chopsticks[leftPosition] integerValue] == CHOPSTICK_FREE && [self.chopsticks[rightPosition] integerValue] == CHOPSTICK_FREE) {
+    if ([self.chopsticks[leftPosition] integerValue] == CHOPSTICK_FREE &&
+        [self.chopsticks[rightPosition] integerValue] == CHOPSTICK_FREE) {
         self.chopsticks[leftPosition] = @(CHOPSTICK_USED);
         self.chopsticks[rightPosition] = @(CHOPSTICK_USED);
         [self.eating addObject:name];
@@ -88,7 +89,8 @@ NSUInteger const CHOPSTICK_USED = 1;
     NSUInteger leftPosition = index;
     NSUInteger rightPosition = (index + 1) % self.chopsticks.count;
     
-    if (!([self.chopsticks[leftPosition] integerValue] == CHOPSTICK_USED && [self.chopsticks[rightPosition] integerValue] == CHOPSTICK_USED)) {
+    if (!([self.chopsticks[leftPosition] integerValue] == CHOPSTICK_USED &&
+          [self.chopsticks[rightPosition] integerValue] == CHOPSTICK_USED)) {
         NSLog(@"ERROR: philosopher %@ without both chopsticks thinks he had eaten", name);
     }
     self.chopsticks[leftPosition] = @(CHOPSTICK_FREE);
@@ -101,7 +103,9 @@ NSUInteger const CHOPSTICK_USED = 1;
 
 - (void)printTableStatus
 {
-    NSLog(@"| eating: %@ chopsticks: %@ |", [self.eating.array componentsJoinedByString:@" "], [self.chopsticks componentsJoinedByString:@" "]);
+    NSLog(@"| eating: %@ chopsticks: %@ |",
+          [self.eating.array componentsJoinedByString:@" "],
+          [self.chopsticks componentsJoinedByString:@" "]);
 }
 
 @end
