@@ -20,7 +20,7 @@ NSUInteger const CHOPSTICK_USED = 1;
 {
     self = [super init];
     if (self) {
-        _philosophers = [NSMutableOrderedSet new];
+        _philosopherNames = [NSMutableOrderedSet new];
         _eating = [NSMutableOrderedSet new];
         _chopsticks = [NSMutableArray new];
         
@@ -36,7 +36,7 @@ NSUInteger const CHOPSTICK_USED = 1;
 
 - (void)welcome:(NSString *)name
 {
-    [self.philosophers addObject:name];
+    [self.philosopherNames addObject:name];
     Philosopher *philosopher = TBActorSupervisionPool.sharedInstance[name];
     
     // re-entry through supervision
@@ -51,12 +51,12 @@ NSUInteger const CHOPSTICK_USED = 1;
 
 - (void)hungry:(NSString *)name
 {
-    if (![self.philosophers containsObject:name]) {
+    if (![self.philosopherNames containsObject:name]) {
         NSLog(@"ERROR: philosopher %@ is not even sat down", name);
     }
     Philosopher *philosopher = TBActorSupervisionPool.sharedInstance[name];
     
-    NSUInteger index = [self.philosophers indexOfObject:name];
+    NSUInteger index = [self.philosopherNames indexOfObject:name];
     NSUInteger leftPosition = index;
     NSUInteger rightPosition = (index + 1) % self.chopsticks.count;
     
@@ -80,12 +80,12 @@ NSUInteger const CHOPSTICK_USED = 1;
 
 - (void)dropChopsticks:(NSString *)name
 {
-    if (![self.philosophers containsObject:name]) {
+    if (![self.philosopherNames containsObject:name]) {
         NSLog(@"ERROR: philosopher %@ is not even sat down", name);
     }
     Philosopher *philosopher = TBActorSupervisionPool.sharedInstance[name];
     
-    NSUInteger index = [self.philosophers indexOfObject:name];
+    NSUInteger index = [self.philosopherNames indexOfObject:name];
     NSUInteger leftPosition = index;
     NSUInteger rightPosition = (index + 1) % self.chopsticks.count;
     

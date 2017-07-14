@@ -10,7 +10,7 @@
 
 @interface Table : NSObject
 
-@property (nonatomic) NSMutableOrderedSet *philosophers;
+@property (nonatomic) NSMutableOrderedSet *philosopherNames;
 @property (nonatomic) NSMutableOrderedSet *eating;
 @property (nonatomic) NSMutableArray *chopsticks;
 
