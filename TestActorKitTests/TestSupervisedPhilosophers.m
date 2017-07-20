@@ -1,5 +1,5 @@
 //
-//  TestActorKitTests.m
+//  TestSupervisedPhilosophers.m
 //  TestActorKitTests
 //
 //  Created by Julian Krumow on 20.08.15.
@@ -10,15 +10,15 @@
 #import <XCTest/XCTest.h>
 #import <ActorKit/Supervision.h>
 
-#import "Table.h"
-#import "Philosopher.h"
+#import "TableSupervised.h"
+#import "PhilosopherSupervised.h"
 
-@interface TestActorKitTests : XCTestCase
+@interface TestSupervisedPhilosophers : XCTestCase
 
 @property (nonatomic) NSArray *philosophers;
 @end
 
-@implementation TestActorKitTests
+@implementation TestSupervisedPhilosophers
 
 - (void)setUp
 {
@@ -27,7 +27,7 @@
     _philosophers = @[@"Heraclitus", @"Aristotle", @"Epictetus", @"Schopenhauer", @"Popper"];
     
     [TBActorSupervisionPool.sharedInstance superviseWithId:@"table" creationBlock:^NSObject * _Nonnull {
-        return [[Table alloc] initWithChopsticks:self.philosophers.count];
+        return [[TableSupervised alloc] initWithChopsticks:self.philosophers.count];
     }];
 }
 
@@ -44,24 +44,11 @@
     [super tearDown];
 }
 
-- (void)testDiningPhilosophers
+- (void)test
 {
     for (NSString *name in self.philosophers) {
         [TBActorSupervisionPool.sharedInstance superviseWithId:name creationBlock:^NSObject * _Nonnull {
-            return [[Philosopher alloc] initWithName:name sensitive:NO];
-        }];
-    }
-    
-    sleep(2);
-    
-    XCTAssert(YES, @"Pass");
-}
-
-- (void)testDiningPhilosophersSensitive
-{
-    for (NSString *name in self.philosophers) {
-        [TBActorSupervisionPool.sharedInstance superviseWithId:name creationBlock:^NSObject * _Nonnull {
-            return [[Philosopher alloc] initWithName:name sensitive:YES];
+            return [[PhilosopherSupervised alloc] initWithName:name];
         }];
     }
     

@@ -1,5 +1,5 @@
 //
-//  Table.m
+//  TableSupervised.m
 //  TestActorKit
 //
 //  Created by Julian Krumow on 15.12.15.
@@ -8,18 +8,17 @@
 
 #import <ActorKit/Supervision.h>
 
+#import "TableSupervised.h"
+#import "PhilosopherSupervised.h"
 #import "Constants.h"
-#import "Table.h"
-#import "Philosopher.h"
 
-@implementation Table
+@implementation TableSupervised
 
 - (instancetype)initWithChopsticks:(NSUInteger)chopSticks
 {
     self = [super init];
     if (self) {
         _philosopherNames = [NSMutableOrderedSet new];
-        _philosophers = [NSMutableDictionary new];
         _eating = [NSMutableOrderedSet new];
         _chopsticks = [NSMutableArray new];
         
@@ -33,13 +32,19 @@
     return self;
 }
 
-- (void)welcome:(Philosopher *)philosopher
+- (void)welcome:(NSString *)name
 {
-    [self.philosopherNames addObject:philosopher.name];
-    [self.philosophers setObject:philosopher forKey:philosopher.name];
+    [self.philosopherNames addObject:name];
+    PhilosopherSupervised *philosopher = TBActorSupervisionPool.sharedInstance[name];
     
-    NSLog(@"%@ has sat down at the table", philosopher.name);
-    [philosopher.async think];
+    // re-entry through supervision
+    if ([self.eating containsObject:name]) {
+        NSLog(@"%@ is well again", name);
+        [philosopher.async eat];
+    } else {
+        NSLog(@"%@ has sat down at the table", name);
+        [philosopher.async think];
+    }
 }
 
 - (void)hungry:(NSString *)name
@@ -47,7 +52,7 @@
     if (![self.philosopherNames containsObject:name]) {
         NSLog(@"ERROR: philosopher %@ is not even sat down", name);
     }
-    Philosopher *philosopher = self.philosophers[name];
+    PhilosopherSupervised *philosopher = TBActorSupervisionPool.sharedInstance[name];
     
     NSUInteger index = [self.philosopherNames indexOfObject:name];
     NSUInteger leftPosition = index;
@@ -76,7 +81,7 @@
     if (![self.philosopherNames containsObject:name]) {
         NSLog(@"ERROR: philosopher %@ is not even sat down", name);
     }
-    Philosopher *philosopher = self.philosophers[name];
+    PhilosopherSupervised *philosopher = TBActorSupervisionPool.sharedInstance[name];
     
     NSUInteger index = [self.philosopherNames indexOfObject:name];
     NSUInteger leftPosition = index;

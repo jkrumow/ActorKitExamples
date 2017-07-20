@@ -6,30 +6,25 @@
 //  Copyright © 2015 Julian Krumow. All rights reserved.
 //
 
-#import <ActorKit/Supervision.h>
+#import <ActorKit/ActorKit.h>
 
 #import "Philosopher.h"
 #import "Table.h"
 
 @implementation Philosopher
 
-- (instancetype)initWithName:(NSString *)name sensitive:(BOOL)sensitive
+- (instancetype)initWithName:(NSString *)name table:(Table *)table
 {
     self = [super init];
     if (self) {
         _name = name;
-        _sensitive = sensitive;
+        _table = table;
         
         srand ((unsigned int)time(NULL));
         
-        [self.table.async welcome:self.name];
+        [self.table.async welcome:self];
     }
     return self;
-}
-
-- (Table *)table
-{
-    return TBActorSupervisionPool.sharedInstance[@"table"];
 }
 
 - (void)think
@@ -46,38 +41,16 @@
     NSLog(@"%@ is eating", self.name);
     [self sleepForRandomInterval];
     
-    if ([self isFeelingWell]) {
-        NSLog(@"%@ burps", self.name);
-        [self.table.async dropChopsticks:self.name];
-    } else {
-        [self barf];
-    }
-}
-
-- (void)barf
-{
-    NSLog(@"%@ gets sick", self.name);
-    [self sleepForRandomInterval];
-    NSLog(@"%@ barfs", self.name);
-    
-    NSString *message = [NSString stringWithFormat:@"%@ got sick.", self.name];
-    @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:message userInfo:nil];
+    NSLog(@"%@ burps", self.name);
+    [self.table.async dropChopsticks:self.name];
 }
 
 - (void)sleepForRandomInterval
 {
-    sleep(randomNumberInRange(0, 1000) / 1000.0);
+    sleep([self randomNumberInRange:0 to:1000] / 1000.0);
 }
 
-- (BOOL)isFeelingWell
-{
-    if (self.isSensitive) {
-        return (randomNumberInRange(0, 9) <  8);
-    }
-    return YES;
-}
-
-NSInteger randomNumberInRange(NSInteger from, NSInteger to)
+- (NSInteger)randomNumberInRange:(NSInteger)from to:(NSInteger)to
 {
     return to + rand() / (RAND_MAX / (from - to + 1) + 1);
 }

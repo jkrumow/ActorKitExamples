@@ -16,11 +16,14 @@
 		153F4AB01B8680E500BA99B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 153F4AAE1B8680E500BA99B2 /* Main.storyboard */; };
 		153F4AB21B8680E500BA99B2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 153F4AB11B8680E500BA99B2 /* Images.xcassets */; };
 		153F4AB51B8680E500BA99B2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 153F4AB31B8680E500BA99B2 /* LaunchScreen.xib */; };
-		153F4AC11B8680E500BA99B2 /* TestActorKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 153F4AC01B8680E500BA99B2 /* TestActorKitTests.m */; };
+		153F4AC11B8680E500BA99B2 /* TestSupervisedPhilosophers.m in Sources */ = {isa = PBXBuildFile; fileRef = 153F4AC01B8680E500BA99B2 /* TestSupervisedPhilosophers.m */; };
 		156526951E96DDE100E9F9AF /* URLList.m in Sources */ = {isa = PBXBuildFile; fileRef = 156526941E96DDE100E9F9AF /* URLList.m */; };
 		15B959D91BAB6DE900D115F6 /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B959D81BAB6DE900D115F6 /* ImageCell.m */; };
 		15B959E01BAB72B600D115F6 /* ImageFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B959DD1BAB72B600D115F6 /* ImageFetcher.m */; };
 		15B959E11BAB72B600D115F6 /* ImageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B959DF1BAB72B600D115F6 /* ImageRequest.m */; };
+		15C1FF841F213B8A00F00B90 /* TestDiningPhilosophers.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C1FF831F213B8A00F00B90 /* TestDiningPhilosophers.m */; };
+		15C1FF8A1F21413B00F00B90 /* PhilosopherSupervised.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C1FF871F21413B00F00B90 /* PhilosopherSupervised.m */; };
+		15C1FF8B1F21413B00F00B90 /* TableSupervised.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C1FF891F21413B00F00B90 /* TableSupervised.m */; };
 		B925B7953ED2E8218609A8D3 /* Pods_BasePods_TestActorKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B96EA4B036385C4E611152F /* Pods_BasePods_TestActorKit.framework */; };
 		EA4870B44DA3E2A4AC943291 /* Pods_BasePods_TestActorKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF8745558C586EDE3002842F /* Pods_BasePods_TestActorKitTests.framework */; };
 /* End PBXBuildFile section */
@@ -55,7 +58,7 @@
 		153F4AB41B8680E500BA99B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		153F4ABA1B8680E500BA99B2 /* TestActorKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestActorKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		153F4ABF1B8680E500BA99B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		153F4AC01B8680E500BA99B2 /* TestActorKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestActorKitTests.m; sourceTree = "<group>"; };
+		153F4AC01B8680E500BA99B2 /* TestSupervisedPhilosophers.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestSupervisedPhilosophers.m; sourceTree = "<group>"; };
 		156526931E96DDE100E9F9AF /* URLList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLList.h; sourceTree = "<group>"; };
 		156526941E96DDE100E9F9AF /* URLList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLList.m; sourceTree = "<group>"; };
 		156B08EC1C6A8254005B036A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -65,6 +68,12 @@
 		15B959DD1BAB72B600D115F6 /* ImageFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageFetcher.m; sourceTree = "<group>"; };
 		15B959DE1BAB72B600D115F6 /* ImageRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageRequest.h; sourceTree = "<group>"; };
 		15B959DF1BAB72B600D115F6 /* ImageRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageRequest.m; sourceTree = "<group>"; };
+		15C1FF831F213B8A00F00B90 /* TestDiningPhilosophers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestDiningPhilosophers.m; sourceTree = "<group>"; };
+		15C1FF861F21413B00F00B90 /* PhilosopherSupervised.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhilosopherSupervised.h; sourceTree = "<group>"; };
+		15C1FF871F21413B00F00B90 /* PhilosopherSupervised.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhilosopherSupervised.m; sourceTree = "<group>"; };
+		15C1FF881F21413B00F00B90 /* TableSupervised.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableSupervised.h; sourceTree = "<group>"; };
+		15C1FF891F21413B00F00B90 /* TableSupervised.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableSupervised.m; sourceTree = "<group>"; };
+		15C1FF8C1F21439700F00B90 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		1E2B8BB10DA5FFF50D5B77EF /* Pods-TestActorKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestActorKitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestActorKitTests/Pods-TestActorKitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3AA9D75D12B9DFA0040C81DB /* Pods-BasePods-TestActorKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasePods-TestActorKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-BasePods-TestActorKit/Pods-BasePods-TestActorKit.release.xcconfig"; sourceTree = "<group>"; };
 		484C824BB7FB9649DDC6E042 /* Pods-TestActorKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestActorKitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TestActorKitTests/Pods-TestActorKitTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -97,15 +106,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		15319AB21C20CAF00077987B /* Actors */ = {
+		15319AB21C20CAF00077987B /* DiningPhilosophers */ = {
 			isa = PBXGroup;
 			children = (
-				15319AAC1C20CA040077987B /* Table.h */,
-				15319AAD1C20CA040077987B /* Table.m */,
+				15C1FF831F213B8A00F00B90 /* TestDiningPhilosophers.m */,
 				15319AAF1C20CA0F0077987B /* Philosopher.h */,
 				15319AB01C20CA0F0077987B /* Philosopher.m */,
+				15319AAC1C20CA040077987B /* Table.h */,
+				15319AAD1C20CA040077987B /* Table.m */,
 			);
-			name = Actors;
+			name = DiningPhilosophers;
 			sourceTree = "<group>";
 		};
 		153F4A981B8680E500BA99B2 = {
@@ -159,8 +169,9 @@
 		153F4ABD1B8680E500BA99B2 /* TestActorKitTests */ = {
 			isa = PBXGroup;
 			children = (
-				15319AB21C20CAF00077987B /* Actors */,
-				153F4AC01B8680E500BA99B2 /* TestActorKitTests.m */,
+				15C1FF8C1F21439700F00B90 /* Constants.h */,
+				15319AB21C20CAF00077987B /* DiningPhilosophers */,
+				15C1FF851F21412B00F00B90 /* SupervisedPhilosophers */,
 				153F4ABE1B8680E500BA99B2 /* Supporting Files */,
 			);
 			path = TestActorKitTests;
@@ -202,6 +213,18 @@
 				15B959DF1BAB72B600D115F6 /* ImageRequest.m */,
 			);
 			path = Actors;
+			sourceTree = "<group>";
+		};
+		15C1FF851F21412B00F00B90 /* SupervisedPhilosophers */ = {
+			isa = PBXGroup;
+			children = (
+				15C1FF861F21413B00F00B90 /* PhilosopherSupervised.h */,
+				15C1FF871F21413B00F00B90 /* PhilosopherSupervised.m */,
+				153F4AC01B8680E500BA99B2 /* TestSupervisedPhilosophers.m */,
+				15C1FF881F21413B00F00B90 /* TableSupervised.h */,
+				15C1FF891F21413B00F00B90 /* TableSupervised.m */,
+			);
+			name = SupervisedPhilosophers;
 			sourceTree = "<group>";
 		};
 		4021E38CCEFFC7A000425EF6 /* Pods */ = {
@@ -443,9 +466,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15C1FF841F213B8A00F00B90 /* TestDiningPhilosophers.m in Sources */,
 				15319AAE1C20CA040077987B /* Table.m in Sources */,
-				153F4AC11B8680E500BA99B2 /* TestActorKitTests.m in Sources */,
+				15C1FF8B1F21413B00F00B90 /* TableSupervised.m in Sources */,
+				153F4AC11B8680E500BA99B2 /* TestSupervisedPhilosophers.m in Sources */,
 				15319AB11C20CA0F0077987B /* Philosopher.m in Sources */,
+				15C1FF8A1F21413B00F00B90 /* PhilosopherSupervised.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

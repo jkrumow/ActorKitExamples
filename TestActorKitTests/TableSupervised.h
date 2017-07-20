@@ -1,5 +1,5 @@
 //
-//  Table.h
+//  TableSupervised.h
 //  TestActorKit
 //
 //  Created by Julian Krumow on 15.12.15.
@@ -7,17 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Philosopher.h"
+#import "PhilosopherSupervised.h"
 
-@interface Table : NSObject
+@interface TableSupervised : NSObject
 
 @property (nonatomic) NSMutableOrderedSet *philosopherNames;
-@property (nonatomic) NSMutableDictionary <NSString*, Philosopher *> *philosophers;
 @property (nonatomic) NSMutableOrderedSet *eating;
 @property (nonatomic) NSMutableArray *chopsticks;
 
 - (instancetype)initWithChopsticks:(NSUInteger)chopSticks;
-- (void)welcome:(Philosopher *)philosopher;
+- (void)welcome:(NSString *)name;
 - (void)hungry:(NSString *)name;
 - (void)dropChopsticks:(NSString *)name;
 - (void)printTableStatus;

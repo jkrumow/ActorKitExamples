@@ -1,5 +1,5 @@
 //
-//  Philosopher.h
+//  PhilosopherSupervised.h
 //  TestActorKit
 //
 //  Created by Julian Krumow on 15.12.15.
@@ -8,13 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@class Table;
-@interface Philosopher : NSObject
+@class TableSupervised;
+@interface PhilosopherSupervised : NSObject
 
 @property (nonatomic) NSString *name;
-@property (nonatomic) Table *table;
 
-- (instancetype)initWithName:(NSString *)name table:(Table *)table;
+- (instancetype)initWithName:(NSString *)name;
 - (void)think;
 - (void)eat;
+- (void)barf;
 @end
