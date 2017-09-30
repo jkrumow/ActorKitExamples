@@ -1,9 +1,9 @@
 PODS:
-  - ActorKit/Core (1.3.0)
-  - ActorKit/Promises (1.3.0):
+  - ActorKit/Core (1.3.1)
+  - ActorKit/Promises (1.3.1):
     - ActorKit/Core
     - PromiseKit/CorePromise (~> 4.0)
-  - ActorKit/Supervision (1.3.0):
+  - ActorKit/Supervision (1.3.1):
     - ActorKit/Core
   - PromiseKit/CorePromise (4.4.0)
 
@@ -12,7 +12,7 @@ DEPENDENCIES:
   - ActorKit/Supervision
 
 SPEC CHECKSUMS:
-  ActorKit: a9dcbbed5370f0c857e2d32b005e8631031ab4a8
+  ActorKit: 8a620c5011ae395d3f24fc5c5a61acd4a8c6a523
   PromiseKit: ecf5fe92275d57ee77c9ede858af47a162e9b97e
 
 PODFILE CHECKSUM: 00368e1d3ac5330c9b78a4aae6611824c247c25f
